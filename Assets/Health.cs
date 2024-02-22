@@ -17,6 +17,8 @@ public class Health : MonoBehaviour
 
         if (health <= 0) 
         { 
+            // add message "You Died!"
+            // add particle effects to show damage taken
             Destroy(gameObject);
         }
     }

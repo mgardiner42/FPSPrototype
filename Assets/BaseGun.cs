@@ -13,7 +13,7 @@ public class BaseGun : MonoBehaviour
     void Update() 
     {
         //Decrement firerate timer
-        nextFireTime -= Time.deltaTime;
+        nextFireTime -= Time.deltaTime; // this just counts down forever? could this underflow?
 
         //if its the next time to fire, fire
         if (Input.GetButton("Fire1") && nextFireTime < 0)
