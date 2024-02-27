@@ -9,6 +9,8 @@ public class Health : MonoBehaviour
     public int health;
     public int MAX_HEALTH;
 
+    public bool isLocalPlayer;
+
     //Remote procedure call. This allows another player to run these scripts, such as if they deal damage
     [PunRPC]
     public void TakeDamage(int _damage)
@@ -16,7 +18,11 @@ public class Health : MonoBehaviour
         health -= _damage;
 
         if (health <= 0) 
-        { 
+        {
+            if (isLocalPlayer)
+            {
+                RoomManager.instance.SpawnPlayer();
+            }
             Destroy(gameObject);
         }
     }
