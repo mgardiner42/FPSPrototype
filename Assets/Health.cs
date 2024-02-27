@@ -22,7 +22,10 @@ public class Health : MonoBehaviour
             if (isLocalPlayer)
             {
                 RoomManager.instance.SpawnPlayer();
-            }
+            } 
+            // add message "You Died!"
+            // add particle effects to show damage taken
+
             Destroy(gameObject);
         }
     }
