@@ -18,7 +18,7 @@ public class Health : MonoBehaviour
         if (health <= 0) 
         {
             // add message "You Died!"
-            //GUI.Label(new Rect(10, 10, 100, 20), "You Died!");
+            GUI.Label(new Rect(50, 50, 100, 20), "You Died!");
             // add particle effects to show damage taken
             Destroy(gameObject);
         }
@@ -34,7 +34,7 @@ public class Health : MonoBehaviour
 
     public void OnGUI()
     {
-        if (health >= 0)
+        if (health > 0)
         {
             GUI.Label(new Rect(50, 50, 100, 20), health.ToString() + " HP");
         }
