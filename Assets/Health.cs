@@ -34,13 +34,8 @@ public class Health : MonoBehaviour
 
     public void OnGUI()
     {
-
-
-
         if (health >= 0)
         {
-
-
             GUI.Label(new Rect(50, 50, 100, 20), health.ToString() + " HP");
         }
     }
