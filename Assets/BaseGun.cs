@@ -33,6 +33,8 @@ public class BaseGun : MonoBehaviour
 
         if (Physics.Raycast(ray.origin, ray.direction, out hitscan)) 
         {
+
+            
             //check if it hits an object with health
             if (hitscan.transform.gameObject.GetComponent<Health>())
             {
