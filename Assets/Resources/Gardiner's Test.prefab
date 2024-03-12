@@ -82,14 +82,8 @@ MonoBehaviour:
   power: 6
   vertForce: 0
   camera: {fileID: 7706840355385706384}
-  AttackPoint: {fileID: 8812103482867324450}
 --- !u!20 &7706840355385706384 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 4299841731032255963, guid: bc721ff5c40daf641868e0c9f3e87c1e, type: 3}
-  m_PrefabInstance: {fileID: 5861480259743713867}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8812103482867324450 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3103763341277338729, guid: bc721ff5c40daf641868e0c9f3e87c1e, type: 3}
   m_PrefabInstance: {fileID: 5861480259743713867}
   m_PrefabAsset: {fileID: 0}

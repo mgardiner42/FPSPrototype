@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour
     public float power, vertForce;
 
     bool shooting, readyToShoot, reloading;
-    public Camera camera;
+    public Camera camera1; 
 
     // TODO Figure out how to attach the AttackPoint position into this script, then instantiate the projectile
 
@@ -17,7 +17,7 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+     camera1 = GameObject.Find("blasterB").GetComponentInParent<Camera>();
     }
 
     // Update is called once per frame
@@ -33,15 +33,15 @@ public class Projectile : MonoBehaviour
        shooting = Input.GetKeyDown(KeyCode.Mouse0);
        if (shooting)
         {
-            shoot();
+            Shoot();
         } 
     }
 
     //Method to shoot projectiles -- Initial demo test
-    private void shoot()
+    private void Shoot()
     {
         //Cast ray to find exact hit position
-        Ray ray = camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        Ray ray = camera1.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
         Vector3 targetPoint;
 
@@ -55,12 +55,15 @@ public class Projectile : MonoBehaviour
             targetPoint = ray.GetPoint(75); //75 is arbitrary distance
         }
 
-        Vector3 direction = targetPoint - camera.transform.position;
+        Vector3 direction = targetPoint - camera1.transform.position;
 
 
-        projectile = Instantiate(projectile, camera.transform.position, Quaternion.identity);
-        projectile.transform.forward = direction.normalized;
-        projectile.GetComponent<Rigidbody>().AddForce(direction.normalized * 5, ForceMode.Impulse);
-        projectile.GetComponent<Rigidbody>().AddForce(camera.transform.up * 5, ForceMode.Impulse);
+        GameObject projectile_new = Instantiate(projectile, GameObject.Find("blasterB").GetComponentInParent<Camera>().transform.position, Quaternion.identity);
+        projectile_new.transform.forward = direction.normalized;
+        projectile_new.GetComponent<Rigidbody>().AddForce(direction.normalized * 5, ForceMode.Impulse);
+        projectile_new.GetComponent<Rigidbody>().AddForce(GameObject.Find("blasterB").GetComponentInParent<Camera>().transform.up * 5, ForceMode.Impulse);
+
+        //Destorys projectiles after a set period of time
+        Destroy(projectile_new, 10);
     }
 }
