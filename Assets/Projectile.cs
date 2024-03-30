@@ -58,10 +58,10 @@ public class Projectile : MonoBehaviour
         Vector3 direction = targetPoint - camera1.transform.position;
 
 
-        GameObject projectile_new = Instantiate(projectile, GameObject.Find("blasterB").GetComponentInParent<Camera>().transform.position, Quaternion.identity);
-        projectile_new.transform.forward = direction.normalized;
-        projectile_new.GetComponent<Rigidbody>().AddForce(direction.normalized * 5, ForceMode.Impulse);
-        projectile_new.GetComponent<Rigidbody>().AddForce(GameObject.Find("blasterB").GetComponentInParent<Camera>().transform.up * 5, ForceMode.Impulse);
+        GameObject projectile_new = Instantiate(projectile, GameObject.Find("AttackPoint").transform.position, Quaternion.identity);
+
+        //Grabs forward vector of the attack point and shoots projectile in that direction
+        projectile_new.GetComponent<Rigidbody>().AddForce(GameObject.Find("AttackPoint").transform.forward*5, ForceMode.Impulse);
 
         //Destorys projectiles after a set period of time
         Destroy(projectile_new, 10);

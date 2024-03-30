@@ -8,6 +8,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1186177936503777543, guid: bc721ff5c40daf641868e0c9f3e87c1e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.049
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186177936503777543, guid: bc721ff5c40daf641868e0c9f3e87c1e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186177936503777543, guid: bc721ff5c40daf641868e0c9f3e87c1e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.095
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186177936503777543, guid: bc721ff5c40daf641868e0c9f3e87c1e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186177936503777543, guid: bc721ff5c40daf641868e0c9f3e87c1e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186177936503777543, guid: bc721ff5c40daf641868e0c9f3e87c1e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186177936503777543, guid: bc721ff5c40daf641868e0c9f3e87c1e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 3627056221983470997, guid: bc721ff5c40daf641868e0c9f3e87c1e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -81,9 +109,4 @@ MonoBehaviour:
   projectile: {fileID: 4592867263446854244, guid: 77b749ac662fc914bbedb0a262fc04c3, type: 3}
   power: 6
   vertForce: 0
-  camera: {fileID: 7706840355385706384}
---- !u!20 &7706840355385706384 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 4299841731032255963, guid: bc721ff5c40daf641868e0c9f3e87c1e, type: 3}
-  m_PrefabInstance: {fileID: 5861480259743713867}
-  m_PrefabAsset: {fileID: 0}
+  camera1: {fileID: 0}
