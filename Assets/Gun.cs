@@ -2,22 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Gun : MonoBehaviour
 {
     // Specific projectile properties
-    public GameObject projectile;
+    public GameObject basicprojectile;
     public float power, vertForce;
 
     bool shooting, readyToShoot, reloading;
     public Camera camera1; 
-
-    // TODO Figure out how to attach the AttackPoint position into this script, then instantiate the projectile
+    public Dictionary<Ammo, int> ammoVals;
 
 
     // Start is called before the first frame update
     void Start()
     {
-     camera1 = GameObject.Find("blasterB").GetComponentInParent<Camera>();
+        camera1 = GameObject.Find("blasterB").GetComponentInParent<Camera>();
+
+        //TODO Setting Up Ammo System
+        ammoVals = new Dictionary<Ammo, int>();
+        Projectiles bp = Projectiles.BasicProjectile;
+        ammoVals[bp] = 5;
     }
 
     // Update is called once per frame
@@ -58,7 +62,7 @@ public class Projectile : MonoBehaviour
         Vector3 direction = targetPoint - camera1.transform.position;
 
 
-        GameObject projectile_new = Instantiate(projectile, GameObject.Find("AttackPoint").transform.position, Quaternion.identity);
+        GameObject projectile_new = Instantiate(basicprojectile, GameObject.Find("AttackPoint").transform.position, Quaternion.identity);
 
         //Grabs forward vector of the attack point and shoots projectile in that direction
         projectile_new.GetComponent<Rigidbody>().AddForce(GameObject.Find("AttackPoint").transform.forward*5, ForceMode.Impulse);

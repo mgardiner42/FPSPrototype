@@ -161,6 +161,7 @@ GameObject:
   - component: {fileID: -6748861724235056583}
   - component: {fileID: 3126052802927979648}
   - component: {fileID: 1114848210950586412}
+  - component: {fileID: -2033075831518789698}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -383,6 +384,22 @@ MonoBehaviour:
   health: 100
   MAX_HEALTH: 100
   isLocalPlayer: 0
+--- !u!114 &-2033075831518789698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9071468676209784126}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f24186ce2671fc4aa269585b9a5fa91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basicprojectile: {fileID: 4592867263446854244, guid: 77b749ac662fc914bbedb0a262fc04c3, type: 3}
+  power: 0
+  vertForce: 0
+  camera1: {fileID: 0}
 --- !u!1001 &5763201582636161123
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -481,12 +498,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4844299368849892658}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f24186ce2671fc4aa269585b9a5fa91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 4592867263446854244, guid: 77b749ac662fc914bbedb0a262fc04c3, type: 3}
+  basicprojectile: {fileID: 4592867263446854244, guid: 77b749ac662fc914bbedb0a262fc04c3, type: 3}
   power: 5
   vertForce: 0
   camera1: {fileID: 0}
