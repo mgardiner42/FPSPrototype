@@ -27,11 +27,6 @@ public class BasicProjectile : MonoBehaviour
         }
 
 
-        /*if (scale.localScale.x < 1.5)
-        {
-            //Growing each projectile on each frame until it hits its max size
-            scale.localScale += new Vector3(.1f, .1f, .1f);
-        }*/
     }
 
     void GrowProjectile()

@@ -13,6 +13,9 @@ public class Ammo : MonoBehaviour
     //Enummeration for all the differnt types of projectiles
     //Can be added to as development continues
    
-    
+    public Projectiles SwitchAmmo(Projectiles type)
+    {
+        return type;
+    }
 
 }
