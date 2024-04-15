@@ -1,3 +1,5 @@
+using Photon.Pun;
+using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -70,8 +72,7 @@ public class Gun : MonoBehaviour
 
                 Vector3 direction = targetPoint - camera1.transform.position;
 
-
-                GameObject projectile_new = Instantiate(basicprojectile, GameObject.Find("AttackPoint").transform.position, Quaternion.identity);
+                GameObject projectile_new = PhotonNetwork.Instantiate(basicprojectile.name, GameObject.Find("AttackPoint").transform.position, Quaternion.identity);
 
                 //Grabs forward vector of the attack point and shoots projectile in that direction
                 projectile_new.GetComponent<Rigidbody>().AddForce(GameObject.Find("AttackPoint").transform.forward * 5, ForceMode.Impulse);

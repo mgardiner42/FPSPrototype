@@ -14,6 +14,7 @@ public class BaseGun : MonoBehaviour
     {
         //Decrement firerate timer
         nextFireTime -= Time.deltaTime; // this just counts down forever? could this underflow?
+                                        // underflow to what? the float limit? 
 
         //if its the next time to fire, fire
         if (Input.GetButton("Fire1") && nextFireTime < 0)
@@ -32,9 +33,7 @@ public class BaseGun : MonoBehaviour
         RaycastHit hitscan; 
 
         if (Physics.Raycast(ray.origin, ray.direction, out hitscan)) 
-        {
-
-            
+        {   
             //check if it hits an object with health
             if (hitscan.transform.gameObject.GetComponent<Health>())
             {
