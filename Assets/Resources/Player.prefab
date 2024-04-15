@@ -272,6 +272,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 4
   maxVelocityChange: 10
+  jumpForce: 5
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!54 &2418588445041220743
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -384,6 +388,7 @@ MonoBehaviour:
   health: 100
   MAX_HEALTH: 100
   isLocalPlayer: 0
+  spawnpoint: {x: 0, y: 10, z: 0}
 --- !u!114 &-2033075831518789698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,6 +405,7 @@ MonoBehaviour:
   power: 0
   vertForce: 0
   camera1: {fileID: 0}
+  currAmmo: 0
 --- !u!1001 &5763201582636161123
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -507,6 +513,7 @@ MonoBehaviour:
   power: 5
   vertForce: 0
   camera1: {fileID: 0}
+  currAmmo: 0
 --- !u!4 &5220155961599213448 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5928f010b1f93f8499ac25fa4e3a3d40, type: 3}
