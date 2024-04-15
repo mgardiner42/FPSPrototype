@@ -91,14 +91,11 @@ public class Gun : MonoBehaviour
                     targetPoint = ray.GetPoint(75); //75 is arbitrary distance
                 }
 
-<<<<<<< Updated upstream
                 Vector3 direction = targetPoint - camera1.transform.position;
 
                 GameObject projectile_new = PhotonNetwork.Instantiate(basicprojectile.name, GameObject.Find("AttackPoint").transform.position, Quaternion.identity);
-=======
                 direction = targetPoint - camera1.transform.position;
-                GameObject projectile_new = Instantiate(basicprojectile, GameObject.Find("AttackPoint").transform.position, Quaternion.identity);
->>>>>>> Stashed changes
+                //GameObject projectile_new = Instantiate(basicprojectile, GameObject.Find("AttackPoint").transform.position, Quaternion.identity);
 
                 //Grabs forward vector of the attack point and shoots projectile in that direction
                 projectile_new.GetComponent<Rigidbody>().AddForce(GameObject.Find("AttackPoint").transform.forward * 5, ForceMode.Impulse);
