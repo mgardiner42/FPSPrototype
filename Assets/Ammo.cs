@@ -5,7 +5,14 @@ using UnityEngine;
 
 public enum Projectiles
 {
-    BasicProjectile
+    BasicProjectile,
+    BasicBlocker
+}
+
+public struct AmmoCounts
+{
+    public Projectiles ammo;
+    public int count;
 }
 
 public class Ammo : MonoBehaviour

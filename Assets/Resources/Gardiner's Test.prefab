@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2033075831518789698, guid: bc721ff5c40daf641868e0c9f3e87c1e, type: 3}
+      propertyPath: basicblocker
+      value: 
+      objectReference: {fileID: 5016842420361674654, guid: 114f22e20b57de046bfcc8ca95afe824, type: 3}
     - target: {fileID: 1186177936503777543, guid: bc721ff5c40daf641868e0c9f3e87c1e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.049

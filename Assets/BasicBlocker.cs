@@ -1,23 +1,22 @@
-using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicProjectile : MonoBehaviour
+public class BasicBlocker : MonoBehaviour
 {
-    public GameObject basic_proj;
     Transform scale;
     int nextUpdate;
+    public GameObject basicBlocker;
 
+    //TODO Fix Model of Blocker
 
-    // Start is called before the first frame update
     void Start()
     {
-        scale = basic_proj.GetComponentInChildren<Transform>();
+        scale = basicBlocker.GetComponentInChildren<Transform>();
         nextUpdate = 0;
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         if (Time.time >= nextUpdate)
@@ -28,12 +27,12 @@ public class BasicProjectile : MonoBehaviour
             GrowProjectile();
         }
 
-
     }
 
+    //Growing the Projectile
     void GrowProjectile()
     {
-        if (scale.localScale.x < 1.5)
+        if (scale.localScale.z < 1) // TODO Might need to play with Y value to scale for full body of model
         {
             //Growing each projectile on each frame until it hits its max size
             scale.localScale += new Vector3(.1f, .1f, .1f);
