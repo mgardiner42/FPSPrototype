@@ -10,10 +10,12 @@ public class Gun : MonoBehaviour
     // Specific projectile properties
     public GameObject basicprojectile;
     public GameObject basicblocker;
-    public float power, vertForce;
 
     bool shooting, readyToShoot, reloading;
-    public Camera camera1; 
+    public Camera camera1;
+
+    //Ammo variables
+    Ammo charges;
     public List<AmmoCounts> ammoVals;
     public Projectiles currAmmo;
     int ammoNum;
@@ -32,12 +34,16 @@ public class Gun : MonoBehaviour
     void Start()
     {
         blaster.transform.SetParent(camera1.GetComponent<Transform>());
+        charges = GetComponent<Ammo>();
 
         //TODO Setting Up Ammo System
         ammoVals = new List<AmmoCounts>();
+        charges.charge = 20;
 
-        AmmoCounts p = new AmmoCounts{ammo = Projectiles.BasicProjectile, count = 10};
-        AmmoCounts b = new AmmoCounts { ammo = Projectiles.BasicBlocker, count = 3 };
+        //TODO: as more weapons are added, creating method to auto set up all types
+
+        AmmoCounts p = new AmmoCounts{ammo = Projectiles.BasicProjectile, chargeCount = 10};
+        AmmoCounts b = new AmmoCounts { ammo = Projectiles.BasicBlocker, chargeCount = 3 };
 
         //Ammo to begin the Round with
         ammoNum = 0;
@@ -53,24 +59,33 @@ public class Gun : MonoBehaviour
     }
 
 
-    //Control Method for shooting the gun
+    
     private void UserInput()
     {
-       shooting = Input.GetKeyDown(KeyCode.Mouse0);
+        //Control Method for shooting the gun
+        shooting = Input.GetKeyDown(KeyCode.Mouse0);
        if (shooting)
         {
-            Shoot(currAmmo);
+            //Checking to see if there is enough charge to fire the current weapon equipped
+            if (charges.charge - ammoVals[ammoNum].chargeCount >= 0)
+            {
+                charges.charge -= ammoVals[ammoNum].chargeCount; //Make sure the charge amount is spent
+                Shoot(currAmmo);
+            }
         } 
 
        //switching ammo
        if(Input.GetKeyDown(KeyCode.Q))
         {
-            currAmmo = ammoVals[ammoNum].ammo;
-            ammoNum += 1;
-            if(ammoNum >= ammoVals.Count)
+            if(ammoNum >= ammoVals.Count-1)
             {
                 ammoNum = 0;
             }
+            else
+            {
+                ammoNum += 1;
+            }
+            currAmmo = ammoVals[ammoNum].ammo;
         }
     }
 
