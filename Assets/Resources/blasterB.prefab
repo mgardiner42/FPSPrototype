@@ -41,7 +41,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 5928f010b1f93f8499ac25fa4e3a3d40, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.7022471
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5928f010b1f93f8499ac25fa4e3a3d40, type: 3}
       propertyPath: m_LocalPosition.x
@@ -151,6 +151,7 @@ MonoBehaviour:
   camera1: {fileID: 0}
   currAmmo: 0
   blaster: {fileID: 2471248765434783160}
+  ammoText: {fileID: 0}
 --- !u!114 &6742258349871404884
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -22,30 +22,30 @@ public class Health : MonoBehaviour
     {
         health -= _damage;
 
-        healthText.text = health.ToString();
-
         if (health <= 0) 
         {
             if (isLocalPlayer)
             {
                 RespawnPlayer();
-            } 
+            }
             // add message "You Died!"
             // GUI.Label(new Rect(50, 50, 100, 20), "You Died!");
             // add particle effects to show damage taken
-
         }
+        // update HUD
+        healthText.text = health.ToString();
     }
     public void Heal(int _health)
     {
-
-        healthText.text = health.ToString();
 
         health += _health;
         if (health > MAX_HEALTH)
         {
             health = MAX_HEALTH;
         }
+
+        //Update HUD
+        healthText.text = health.ToString();
     }
 
     public void OnGUI()

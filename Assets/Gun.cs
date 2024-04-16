@@ -2,6 +2,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
@@ -23,6 +24,9 @@ public class Gun : MonoBehaviour
     RaycastHit hit;
     Vector3 targetPoint;
     Vector3 direction;
+
+    //HUD Vars
+    public TextMeshProUGUI ammoText;
 
     // Start is called before the first frame update
     void Start()
