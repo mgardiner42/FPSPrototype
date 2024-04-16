@@ -16,6 +16,7 @@ public class Gun : MonoBehaviour
     public List<AmmoCounts> ammoVals;
     public Projectiles currAmmo;
     int ammoNum;
+    public GameObject blaster;
 
     //Vars for shooting projectiles
     Ray ray;
@@ -26,7 +27,7 @@ public class Gun : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        camera1 = GameObject.Find("blasterB").GetComponentInParent<Camera>();
+        blaster.transform.SetParent(camera1.GetComponent<Transform>());
 
         //TODO Setting Up Ammo System
         ammoVals = new List<AmmoCounts>();
