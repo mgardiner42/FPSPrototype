@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 
 public enum Projectiles
@@ -23,6 +24,7 @@ public class Ammo : MonoBehaviour
     int MAX_COUNT = 20;
     int timeUpdate = 2;
     public int charge;
+    public TextMeshProUGUI ammoText;
 
     private void Start()
     {
@@ -39,6 +41,7 @@ public class Ammo : MonoBehaviour
             if (charge < MAX_COUNT)
             {
                 charge++;
+                ammoText.text = charge.ToString();
             }
         }
     }

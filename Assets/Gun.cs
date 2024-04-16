@@ -70,6 +70,7 @@ public class Gun : MonoBehaviour
             if (charges.charge - ammoVals[ammoNum].chargeCount >= 0)
             {
                 charges.charge -= ammoVals[ammoNum].chargeCount; //Make sure the charge amount is spent
+                ammoText.text = charges.charge.ToString();
                 Shoot(currAmmo);
             }
         } 

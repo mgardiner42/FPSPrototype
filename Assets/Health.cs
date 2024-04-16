@@ -48,6 +48,7 @@ public class Health : MonoBehaviour
         healthText.text = health.ToString();
     }
 
+    //Is this old? If so, need to delete now that we have a proper HUD
     public void OnGUI()
     {
         if (health > 0)
