@@ -1,6 +1,7 @@
 using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -13,11 +14,15 @@ public class Health : MonoBehaviour
 
     public Vector3 spawnpoint;
 
+    public TextMeshProUGUI healthText;
+
     //Remote procedure call. This allows another player to run these scripts, such as if they deal damage
     [PunRPC]
     public void TakeDamage(int _damage)
     {
         health -= _damage;
+
+        healthText.text = health.ToString();
 
         if (health <= 0) 
         {
@@ -33,6 +38,9 @@ public class Health : MonoBehaviour
     }
     public void Heal(int _health)
     {
+
+        healthText.text = health.ToString();
+
         health += _health;
         if (health > MAX_HEALTH)
         {

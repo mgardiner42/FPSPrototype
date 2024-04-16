@@ -59,7 +59,7 @@ public class Gun : MonoBehaviour
         } 
 
        //switching ammo
-       if(Input.GetKeyDown(KeyCode.Space))
+       if(Input.GetKeyDown(KeyCode.Q))
         {
             currAmmo = ammoVals[ammoNum].ammo;
             ammoNum += 1;
