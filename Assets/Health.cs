@@ -49,5 +49,6 @@ public class Health : MonoBehaviour
     }
     public void RespawnPlayer() {
         transform.position = spawnpoint;
+        health = MAX_HEALTH;
     }
 }
