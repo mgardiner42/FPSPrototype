@@ -58,7 +58,7 @@ public class Health : MonoBehaviour
     }
     public void RespawnPlayer() {
         if(GetComponent<PlayerFlag>().hasFlag){
-            // drop flag and disable personal flag
+            GetComponent<PlayerFlag>().dropFlag();
         }
         transform.position = spawnpoint;
         health = MAX_HEALTH;

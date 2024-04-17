@@ -11,7 +11,7 @@ public class Flag : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider collision){
-        if (collision.transform.tag == "Player"){
+        if (collision.transform.tag == "Player" && transform.parent == null){
             transform.SetParent(collision.transform);
             foreach(Renderer childRenderer in childRenderers){
                 // disable renderers when the flag is grabbed
