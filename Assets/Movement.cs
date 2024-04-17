@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -62,6 +63,7 @@ public class Movement : MonoBehaviour
         Vector3 targetVelocity = new Vector3(input.x, 0, input.y);
         Vector3 nullVelocity = new Vector3(0, 0, 0);
         targetVelocity = transform.TransformDirection(targetVelocity);
+        nullVelocity = transform.TransformDirection(nullVelocity);
 
         targetVelocity *= _speed;
 
@@ -72,8 +74,8 @@ public class Movement : MonoBehaviour
         if (input.magnitude > 0.5f)
         {
             //accelerate the player in a certain direction
-            velocityChange = targetVelocity - velocity;
-
+            velocityChange = targetVelocity - velocity;            
+            
             velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
             velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
             velocityChange.y = 0;
@@ -84,9 +86,7 @@ public class Movement : MonoBehaviour
             if (grounded) 
             {
                 velocityChange = nullVelocity - velocity;
-
-                velocityChange.x = Mathf.Clamp(velocityChange.x, -friction, friction);
-                velocityChange.z = Mathf.Clamp(velocityChange.z, -friction, friction);
+                velocityChange = velocityChange.normalized * friction;
                 velocityChange.y = 0;
             }
         }

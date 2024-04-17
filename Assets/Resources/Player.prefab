@@ -1291,7 +1291,7 @@ MonoBehaviour:
   walkSpeed: 6
   maxVelocityChange: 8
   jumpForce: 5
-  friction: 0.2
+  friction: 0.4
   groundMask:
     serializedVersion: 2
     m_Bits: 0
