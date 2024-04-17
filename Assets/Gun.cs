@@ -119,7 +119,7 @@ public class Gun : MonoBehaviour
                 //GameObject projectile_new = Instantiate(basicprojectile, GameObject.Find("AttackPoint").transform.position, Quaternion.identity);
 
                 //Grabs forward vector of the attack point and shoots projectile in that direction
-                projectile_new.GetComponent<Rigidbody>().AddForce(GameObject.Find("AttackPoint").transform.forward * 5, ForceMode.Impulse);
+                projectile_new.GetComponent<Rigidbody>().AddForce(camera1.transform.forward * 5, ForceMode.Impulse);
 
                 //Destorys projectiles after a set period of time
                 Destroy(projectile_new, 10);
