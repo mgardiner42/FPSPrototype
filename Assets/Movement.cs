@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
     public float walkSpeed = 4f;
     public float maxVelocityChange = 10f;
     public float jumpForce = 5f;
+    public float friction = 2f;
 
     public LayerMask groundMask;
     private Vector2 input;
@@ -31,9 +32,8 @@ public class Movement : MonoBehaviour
         //Jumping. Doesnt stop normal movement, cause thats fun
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
-            print("jumping");
-            grounded = false;
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            grounded = false;
         }
     }
 
@@ -60,23 +60,37 @@ public class Movement : MonoBehaviour
     Vector3 CalculateMovement(float _speed)
     {
         Vector3 targetVelocity = new Vector3(input.x, 0, input.y);
+        Vector3 nullVelocity = new Vector3(0, 0, 0);
         targetVelocity = transform.TransformDirection(targetVelocity);
 
         targetVelocity *= _speed;
 
         Vector3 velocity = rb.velocity;
 
+        Vector3 velocityChange = new Vector3();
+
         if (input.magnitude > 0.5f)
         {
-            Vector3 velocityChange = targetVelocity - velocity;
+            //accelerate the player in a certain direction
+            velocityChange = targetVelocity - velocity;
 
             velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
             velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
             velocityChange.y = 0;
+        }
+        else 
+        {
+            //If we arent using keys and touching the ground, apply friction
+            if (grounded) 
+            {
+                velocityChange = nullVelocity - velocity;
 
-            return velocityChange;
+                velocityChange.x = Mathf.Clamp(velocityChange.x, -friction, friction);
+                velocityChange.z = Mathf.Clamp(velocityChange.z, -friction, friction);
+                velocityChange.y = 0;
+            }
         }
 
-        return new Vector3();
+        return velocityChange;
     }
 }

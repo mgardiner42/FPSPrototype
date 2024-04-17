@@ -1288,9 +1288,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c31924472b2f0a24f95ee889b5cb7612, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 4
-  maxVelocityChange: 10
+  walkSpeed: 6
+  maxVelocityChange: 8
   jumpForce: 5
+  friction: 0.2
   groundMask:
     serializedVersion: 2
     m_Bits: 0
