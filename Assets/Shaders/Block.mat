@@ -24,9 +24,10 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Ints: []
-    m_Floats: []
+    m_Floats:
+    - _BUILTIN_QueueControl: 0
     m_Colors:
-    - _Color: {r: 0.4087369, g: 0.85324943, b: 0.838738, a: 1}
+    - _Color: {r: 0.3882252, g: 0.83264065, b: 0.932914, a: 0.6}
   m_BuildTextureStacks: []
 --- !u!114 &4261866520641321668
 MonoBehaviour:

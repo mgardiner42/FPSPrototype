@@ -125,25 +125,20 @@ public class Gun : MonoBehaviour
                 Destroy(projectile_new, 10);
                 break;
 
-            case Projectiles.BasicBlocker: //TODO: Write Script for the basic blocker
+            case Projectiles.BasicBlocker: //TODO: Fix the rotation of the blocker when it spawns in
                 
                 //Cast ray to find exact hit position
                 ray = camera1.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
 
-                //checking if anything is hit
-                if (Physics.Raycast(ray, out hit))
-                {
-                    targetPoint = hit.point;
-                }
-                else
-                {
-                    targetPoint = ray.GetPoint(75); //75 is arbitrary distance
-                }
+                
+                targetPoint = ray.GetPoint(5); //5 is arbitrary distance
+             
 
                 direction = targetPoint - camera1.transform.position;
-                GameObject blocker_new = Instantiate(basicblocker, GameObject.Find("AttackPoint").transform.position, Quaternion.identity);
+                GameObject blocker_new = Instantiate(basicblocker, GameObject.Find("AttackPoint").transform.position, GameObject.Find("AttackPoint").transform.rotation);
+                blocker_new.GetComponent<BasicBlocker>().direction = direction;
 
-                blocker_new.GetComponent<Rigidbody>().AddForce(GameObject.Find("AttackPoint").transform.forward*5, ForceMode.Impulse);
+                //blocker_new.GetComponent<Rigidbody>().AddForce(GameObject.Find("AttackPoint").transform.forward*5, ForceMode.Impulse);
 
                 Destroy(blocker_new, 20);
                 break;

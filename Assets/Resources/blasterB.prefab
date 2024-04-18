@@ -146,8 +146,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basicprojectile: {fileID: 4592867263446854244, guid: 77b749ac662fc914bbedb0a262fc04c3, type: 3}
   basicblocker: {fileID: 5016842420361674654, guid: 114f22e20b57de046bfcc8ca95afe824, type: 3}
-  power: 5
-  vertForce: 0
   camera1: {fileID: 0}
   currAmmo: 0
   blaster: {fileID: 2471248765434783160}

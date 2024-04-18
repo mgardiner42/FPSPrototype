@@ -7,6 +7,7 @@ public class BasicBlocker : MonoBehaviour
     Transform scale;
     int nextUpdate;
     public GameObject basicBlocker;
+    public Vector3 direction;
 
     //TODO Fix Model of Blocker
 
@@ -25,7 +26,14 @@ public class BasicBlocker : MonoBehaviour
             // Change the next update (current second+1)
             nextUpdate = Mathf.FloorToInt(Time.time) + 1;
             GrowProjectile();
+
+            if (direction != null)
+            {
+                MoveProjectile();
+            }
         }
+
+        
 
     }
 
@@ -37,5 +45,10 @@ public class BasicBlocker : MonoBehaviour
             //Growing each projectile on each frame until it hits its max size
             scale.localScale += new Vector3(.1f, .1f, .1f);
         }
+    }
+
+    void MoveProjectile()
+    {
+        transform.position += direction;
     }
 }
