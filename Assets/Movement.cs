@@ -10,6 +10,7 @@ public class Movement : MonoBehaviour
     public float maxVelocityChange = 10f;
     public float jumpForce = 5f;
     public float friction = 2f;
+    public float minVelFriction = 0.1f;
 
     public LayerMask groundMask;
     private Vector2 input;
@@ -83,7 +84,7 @@ public class Movement : MonoBehaviour
         else 
         {
             //If we arent using keys and touching the ground, apply friction
-            if (grounded) 
+            if (grounded && velocity.magnitude > minVelFriction) 
             {
                 velocityChange = nullVelocity - velocity;
                 velocityChange = velocityChange.normalized * friction;

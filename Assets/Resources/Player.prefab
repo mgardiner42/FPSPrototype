@@ -1292,6 +1292,7 @@ MonoBehaviour:
   maxVelocityChange: 8
   jumpForce: 5
   friction: 0.4
+  minVelFriction: 0.1
   groundMask:
     serializedVersion: 2
     m_Bits: 0
@@ -1319,7 +1320,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 2
   m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &6327143968862185601
@@ -1374,8 +1375,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64179f3720bbfe947b7724caa67b7c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SynchronizeVelocity: 0
-  m_SynchronizeAngularVelocity: 0
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 1
   m_TeleportEnabled: 1
   m_TeleportIfDistanceGreaterThan: 3
 --- !u!114 &3126052802927979648
@@ -1505,10 +1506,6 @@ PrefabInstance:
       propertyPath: ammoText
       value: 
       objectReference: {fileID: 8793791030385809534}
-    - target: {fileID: 7956353088117157334, guid: 887534aec87e20a4a9b6b3d8eafd7e4c, type: 3}
-      propertyPath: basicblocker
-      value: 
-      objectReference: {fileID: 3135774677913529129, guid: 57a1a6f5c79a6164daf182d89dba42a5, type: 3}
     - target: {fileID: 8144739828992846221, guid: 887534aec87e20a4a9b6b3d8eafd7e4c, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
