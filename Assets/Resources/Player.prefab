@@ -1505,6 +1505,10 @@ PrefabInstance:
       propertyPath: ammoText
       value: 
       objectReference: {fileID: 8793791030385809534}
+    - target: {fileID: 7956353088117157334, guid: 887534aec87e20a4a9b6b3d8eafd7e4c, type: 3}
+      propertyPath: basicblocker
+      value: 
+      objectReference: {fileID: 3135774677913529129, guid: 57a1a6f5c79a6164daf182d89dba42a5, type: 3}
     - target: {fileID: 8144739828992846221, guid: 887534aec87e20a4a9b6b3d8eafd7e4c, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
