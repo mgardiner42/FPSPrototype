@@ -6,7 +6,7 @@ public class Flag : MonoBehaviour
 {
     Renderer[] childRenderers;
     private void Start(){
-        // access renders of each prefab
+        // access mesh renders of each prefab
         childRenderers = GetComponentsInChildren<Renderer>();
     }
 
