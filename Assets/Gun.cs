@@ -58,8 +58,20 @@ public class Gun : MonoBehaviour
         UserInput();
     }
 
+    private IEnumerator DestroyProjectile(float remaining, GameObject projectile)
+    {
+        while(remaining > 0)
+        {
+            remaining -= 1f;
+            yield return new WaitForSeconds(1f);
+        }
 
-    
+        PhotonNetwork.Destroy(projectile);
+
+    }
+
+
+
     private void UserInput()
     {
         //Control Method for shooting the gun
@@ -122,7 +134,7 @@ public class Gun : MonoBehaviour
                 projectile_new.GetComponent<Rigidbody>().AddForce(camera1.transform.forward * 5, ForceMode.Impulse);
 
                 //Destorys projectiles after a set period of time
-                Destroy(projectile_new, 10);
+                StartCoroutine(DestroyProjectile(10, projectile_new));
                 break;
 
             case Projectiles.BasicBlocker: //TODO: Fix the rotation of the blocker when it spawns in
@@ -135,12 +147,12 @@ public class Gun : MonoBehaviour
              
 
                 direction = targetPoint - camera1.transform.position;
-                GameObject blocker_new = Instantiate(basicblocker, GameObject.Find("AttackPoint").transform.position, GameObject.Find("AttackPoint").transform.rotation);
+                GameObject blocker_new = PhotonNetwork.Instantiate(basicblocker.name, GameObject.Find("AttackPoint").transform.position, GameObject.Find("AttackPoint").transform.rotation);
                 blocker_new.GetComponent<BasicBlocker>().direction = direction;
 
                 //blocker_new.GetComponent<Rigidbody>().AddForce(GameObject.Find("AttackPoint").transform.forward*5, ForceMode.Impulse);
 
-                Destroy(blocker_new, 20);
+                StartCoroutine(DestroyProjectile(5, blocker_new));
                 break;
             default:
                 break;
