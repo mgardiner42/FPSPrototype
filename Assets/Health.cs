@@ -49,13 +49,14 @@ public class Health : MonoBehaviour
     }
 
     //Is this old? If so, need to delete now that we have a proper HUD
-    public void OnGUI()
-    {
-        if (health > 0)
-        {
-            GUI.Label(new Rect(50, 50, 100, 20), health.ToString() + " HP");
-        }
-    }
+    //public void OnGUI()
+    //{
+    //   if (health > 0)
+    //    {
+    //        GUI.Label(new Rect(50, 50, 100, 20), health.ToString() + " HP");
+    //    }
+    //}
+
     public void RespawnPlayer() {
         if(GetComponent<PlayerFlag>().hasFlag){
             GetComponent<PlayerFlag>().dropFlag();

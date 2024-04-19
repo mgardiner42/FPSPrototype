@@ -1607,7 +1607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 88923348646275766}
-  remaining: 0
+  remaining: 600
 --- !u!1001 &1722864739785672056
 PrefabInstance:
   m_ObjectHideFlags: 0

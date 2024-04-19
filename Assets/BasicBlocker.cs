@@ -15,6 +15,11 @@ public class BasicBlocker : MonoBehaviour
     {
         scale = basicBlocker.GetComponentInChildren<Transform>();
         nextUpdate = 0;
+
+        if (direction != null)
+        {
+            MoveProjectile();
+        }
     }
 
     
@@ -24,17 +29,26 @@ public class BasicBlocker : MonoBehaviour
         {
             
             // Change the next update (current second+1)
-            nextUpdate = Mathf.FloorToInt(Time.time) + 1;
+            nextUpdate = Mathf.FloorToInt(Time.deltaTime) + 1;
             GrowProjectile();
 
-            if (direction != null)
-            {
-                MoveProjectile();
-            }
         }
 
         
 
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        //This seems flimsy but works, may need to redo
+        if(collision.gameObject.tag == "damage_projectile" || collision.gameObject.tag == "Player")
+        {
+            Physics.IgnoreCollision(collision.collider, GetComponent<Collider>(), false); //Make sure to use the physics engine if one of these tags collides
+        }
+        else
+        {
+            Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
+        }
     }
 
     //Growing the Projectile
@@ -49,6 +63,7 @@ public class BasicBlocker : MonoBehaviour
 
     void MoveProjectile()
     {
-        transform.position += direction;
+        Vector3 endPos = transform.position + direction;
+        transform.position = Vector3.Lerp(transform.position, endPos, 100);
     }
 }

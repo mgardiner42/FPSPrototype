@@ -42,7 +42,7 @@ public class Gun : MonoBehaviour
 
         //TODO: as more weapons are added, creating method to auto set up all types
 
-        AmmoCounts p = new AmmoCounts{ammo = Projectiles.BasicProjectile, chargeCount = 10};
+        AmmoCounts p = new AmmoCounts{ammo = Projectiles.BasicProjectile, chargeCount = 2};
         AmmoCounts b = new AmmoCounts { ammo = Projectiles.BasicBlocker, chargeCount = 3 };
 
         //Ammo to begin the Round with

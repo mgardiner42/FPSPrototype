@@ -27,7 +27,6 @@ public class Timer : MonoBehaviour
             // Wait for the next frame
             yield return new WaitForSeconds(1f);
         }
-
     }
 
     private void UpdateTimerDisplay() {
@@ -37,7 +36,7 @@ public class Timer : MonoBehaviour
 
         // Update the UI text to display the timer
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-        Debug.Log(timerText.text);
+        //Debug.Log(timerText.text);
     }
     // Update is called once per frame
     void Update()

@@ -45,7 +45,6 @@ public class Movement : MonoBehaviour
     }
 
     //Detects if a projectile is hit, may need to move to different script
-    //Need to integrate with spawn/despawn functions, otherwise number of bodies multiply
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "damage_projectile")
