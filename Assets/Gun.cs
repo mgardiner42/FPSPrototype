@@ -66,8 +66,10 @@ public class Gun : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
 
-        PhotonNetwork.Destroy(projectile);
-
+        if (projectile != null)
+        {
+            PhotonNetwork.Destroy(projectile);
+        }
     }
 
 

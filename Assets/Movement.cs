@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Photon;
+using Photon.Pun;
 
 public class Movement : MonoBehaviour
 {
@@ -44,16 +46,9 @@ public class Movement : MonoBehaviour
         grounded = true;
     }
 
-    //Detects if a projectile is hit, may need to move to different script
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "damage_projectile")
-        {
-            health.TakeDamage(25);
-        }
-    }
 
-    void FixedUpdate()
+
+        void FixedUpdate()
     {
         rb.AddForce(CalculateMovement(walkSpeed), ForceMode.VelocityChange);
     }

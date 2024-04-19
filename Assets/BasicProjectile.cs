@@ -39,4 +39,19 @@ public class BasicProjectile : MonoBehaviour
             scale.localScale += new Vector3(.1f, .1f, .1f);
         }
     }
+
+    //Detects if a projectile is hit, may need to move to different script
+    [PunRPC]
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("Hit Player");
+           if (GetComponent<PhotonView>().IsMine)
+           {
+                collision.gameObject.GetComponent<Health>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, 25);
+                PhotonNetwork.Destroy(basic_proj);
+           }
+        }
+    }
 }
