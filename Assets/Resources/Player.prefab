@@ -665,7 +665,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6193297243411337837
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1530,6 +1530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 6666435350839284214}
   camera: {fileID: 2825667164706095649}
+  hud: {fileID: 2876749618849749910}
 --- !u!114 &1114848210950586412
 MonoBehaviour:
   m_ObjectHideFlags: 0
