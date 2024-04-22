@@ -30,6 +30,9 @@ public class Gun : MonoBehaviour
     //HUD Vars
     public TextMeshProUGUI ammoText;
 
+    //Projectile speeds
+    public float VelocityProj = 20;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -133,7 +136,7 @@ public class Gun : MonoBehaviour
                 //GameObject projectile_new = Instantiate(basicprojectile, GameObject.Find("AttackPoint").transform.position, Quaternion.identity);
 
                 //Grabs forward vector of the attack point and shoots projectile in that direction
-                projectile_new.GetComponent<Rigidbody>().AddForce(camera1.transform.forward * 5, ForceMode.Impulse);
+                projectile_new.GetComponent<Rigidbody>().AddForce(camera1.transform.forward * VelocityProj, ForceMode.Impulse);
 
                 //Destorys projectiles after a set period of time
                 StartCoroutine(DestroyProjectile(10, projectile_new));

@@ -47,7 +47,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4592867263446854244}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 0132660bf51a7e34a971e8b26f61d445, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -205,7 +205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SynchronizeVelocity: 1
   m_SynchronizeAngularVelocity: 1
-  m_TeleportEnabled: 0
+  m_TeleportEnabled: 1
   m_TeleportIfDistanceGreaterThan: 3
 --- !u!1 &4801485425502175040
 GameObject:
