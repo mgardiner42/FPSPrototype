@@ -32,13 +32,6 @@ public class Movement : MonoBehaviour
     {
         input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         input.Normalize();
-
-        //Jumping. Doesnt stop normal movement, cause thats fun
-        if (Input.GetKeyDown(KeyCode.Space) && grounded)
-        {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            grounded = false;
-        }
     }
 
     private void OnCollisionStay(Collision collision)
@@ -48,9 +41,16 @@ public class Movement : MonoBehaviour
 
 
 
-        void FixedUpdate()
+    void FixedUpdate()
     {
         rb.AddForce(CalculateMovement(walkSpeed), ForceMode.VelocityChange);
+
+        //Jumping. Doesnt stop normal movement, cause thats fun
+        if (Input.GetKeyDown(KeyCode.Space) && grounded)
+        {
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            grounded = false;
+        }
     }
 
     Vector3 CalculateMovement(float _speed)
