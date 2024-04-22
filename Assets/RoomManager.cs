@@ -12,6 +12,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
     [Space]
     public Transform spawnPoint;
 
+    public Vector3 flagPos;
+    public GameObject flag;
 
     void Awake()
     {
@@ -52,6 +54,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
         //Spawn the player
         SpawnPlayer();
+        SpawnFlag();
     }
 
     public void SpawnPlayer() 
@@ -61,5 +64,9 @@ public class RoomManager : MonoBehaviourPunCallbacks
         //Tie player controls to this player
         _player.GetComponent<PlayerSetup>().IsLocalPlayer();
         _player.GetComponent<Health>().isLocalPlayer = true;
+    }
+
+    public void SpawnFlag() {
+        PhotonNetwork.Instantiate(flag.name, flagPos, Quaternion.identity);
     }
 }

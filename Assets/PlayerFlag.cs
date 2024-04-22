@@ -7,6 +7,8 @@ public class PlayerFlag : MonoBehaviour
     public bool hasFlag;
     public GameObject personalFlag;
     Renderer[] flagRenderers;
+    Transform gameFlag;
+    
     private void Start(){
         // Variable to store the mesh renders of each child object of the flag
         flagRenderers = personalFlag.GetComponentsInChildren<Renderer>();
@@ -25,8 +27,12 @@ public class PlayerFlag : MonoBehaviour
         foreach(Renderer r in flagRenderers){
             r.enabled = false;
         }
-
-        Transform gameFlag = transform.Find("Flag");
+        
+        foreach(Transform child in transform){
+            if (child.CompareTag("Game Flag")){
+                gameFlag = child.gameObject.transform;
+            }
+        }
         // detatch the flag from the its current parent (the player holding the flag)
         gameFlag.SetParent(null);
         // enable the renderers to make the flag visible again
