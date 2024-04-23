@@ -12,7 +12,7 @@ using UnityEngine;
 
 public class CubeRotate : MonoBehaviour
 {
-    private float degreesPerSecond = 20;
+    public float degreesPerSecond;
     
     // NOTE:
     // THERE IS A NEW TAG FOR GreenCube IN THE EDITOR
