@@ -67,7 +67,7 @@ public class Health : MonoBehaviour
 
     public void RespawnPlayer() {
         if(GetComponent<PlayerFlag>().hasFlag){
-            GetComponent<PlayerFlag>().dropFlag();
+            GetComponent<PlayerFlag>().GetComponent<PhotonView>().RPC("dropFlag", RpcTarget.All);
         }
         transform.position = spawnpoint;
         health = MAX_HEALTH;

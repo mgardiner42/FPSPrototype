@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class PlayerFlag : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class PlayerFlag : MonoBehaviour
         }
     }
 
+    [PunRPC]
     public void dropFlag(){
         hasFlag = false;
         // disables the flag on the players back to show they no longer carry the flag
@@ -40,7 +42,4 @@ public class PlayerFlag : MonoBehaviour
             r.enabled = true;
         }
     }
-
-    // TODO: Test with multiple players. (Can both players see and grab the flag)
-
 }
