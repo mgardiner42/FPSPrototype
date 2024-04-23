@@ -7,7 +7,8 @@ using TMPro;
 public enum Projectiles
 {
     BasicProjectile,
-    BasicBlocker
+    BasicBlocker,
+    HealProjectile
 }
 
 public struct AmmoCounts

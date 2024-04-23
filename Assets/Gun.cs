@@ -10,6 +10,7 @@ public class Gun : MonoBehaviour
     // Specific projectile properties
     public GameObject basicprojectile;
     public GameObject basicblocker;
+    public GameObject healprojectile;
 
     bool shooting, readyToShoot, reloading;
     public Camera camera1;
@@ -47,11 +48,13 @@ public class Gun : MonoBehaviour
 
         AmmoCounts p = new AmmoCounts{ammo = Projectiles.BasicProjectile, chargeCount = 2};
         AmmoCounts b = new AmmoCounts { ammo = Projectiles.BasicBlocker, chargeCount = 3 };
+        AmmoCounts h = new AmmoCounts { ammo = Projectiles.HealProjectile, chargeCount = 4 };
 
         //Ammo to begin the Round with
         ammoNum = 0;
         ammoVals.Add(p);
         ammoVals.Add(b);
+        ammoVals.Add(h);
         currAmmo = Projectiles.BasicProjectile;
     }
 
