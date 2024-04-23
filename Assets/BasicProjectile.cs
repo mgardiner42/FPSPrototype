@@ -11,7 +11,7 @@ public class BasicProjectile : MonoBehaviour
     public float growthRate = 0.1f;
     public float maxGrowth = 1.5f;
     public float initialGrowth = 0f;
-    public float damage = 25f;
+    public int damage = 25;
 
     // Start is called before the first frame update
     void Start()
