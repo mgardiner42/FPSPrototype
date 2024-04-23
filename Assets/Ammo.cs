@@ -8,7 +8,8 @@ public enum Projectiles
 {
     BasicProjectile,
     BasicBlocker,
-    HealProjectile
+    HealProjectile,
+    Molotov
 }
 
 public struct AmmoCounts

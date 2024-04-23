@@ -11,6 +11,7 @@ public class Gun : MonoBehaviour
     public GameObject basicprojectile;
     public GameObject basicblocker;
     public GameObject healprojectile;
+    public GameObject molotov;
 
     bool shooting, readyToShoot, reloading;
     public Camera camera1;
@@ -46,15 +47,17 @@ public class Gun : MonoBehaviour
 
         //TODO: as more weapons are added, creating method to auto set up all types
 
-        AmmoCounts p = new AmmoCounts{ammo = Projectiles.BasicProjectile, chargeCount = 2};
+        AmmoCounts p = new AmmoCounts {ammo = Projectiles.BasicProjectile, chargeCount = 2};
         AmmoCounts b = new AmmoCounts { ammo = Projectiles.BasicBlocker, chargeCount = 3 };
         AmmoCounts h = new AmmoCounts { ammo = Projectiles.HealProjectile, chargeCount = 4 };
+        AmmoCounts m = new AmmoCounts { ammo = Projectiles.Molotov, chargeCount = 7 };
 
         //Ammo to begin the Round with
         ammoNum = 0;
         ammoVals.Add(p);
         ammoVals.Add(b);
         ammoVals.Add(h);
+        ammoVals.Add(m);
         currAmmo = Projectiles.BasicProjectile;
     }
 
@@ -122,7 +125,7 @@ public class Gun : MonoBehaviour
                 fireProjectile(basicprojectile.name);
                 break;
 
-            case Projectiles.BasicBlocker: //TODO: Fix the rotation of the blocker when it spawns in
+            case Projectiles.BasicBlocker:
                 
                 //Cast ray to find exact hit position
                 ray = camera1.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
@@ -142,6 +145,12 @@ public class Gun : MonoBehaviour
             case Projectiles.HealProjectile:
 
                 fireProjectile(healprojectile.name);
+                break;
+
+            case Projectiles.Molotov:
+
+                //Will Change behavior, need to tweak velocity
+                fireProjectile(molotov.name);
                 break;
 
             default:

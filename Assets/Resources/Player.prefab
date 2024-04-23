@@ -1563,6 +1563,7 @@ MonoBehaviour:
   basicprojectile: {fileID: 4592867263446854244, guid: 77b749ac662fc914bbedb0a262fc04c3, type: 3}
   basicblocker: {fileID: 5016842420361674654, guid: 114f22e20b57de046bfcc8ca95afe824, type: 3}
   healprojectile: {fileID: 4592867263446854244, guid: d8cf8e23d43fedc44ad5158dc2a4a9e7, type: 3}
+  molotov: {fileID: 0}
   camera1: {fileID: 0}
   currAmmo: 0
   blaster: {fileID: 0}
@@ -1671,6 +1672,10 @@ PrefabInstance:
       propertyPath: camera1
       value: 
       objectReference: {fileID: 4299841731032255963}
+    - target: {fileID: 7956353088117157334, guid: 887534aec87e20a4a9b6b3d8eafd7e4c, type: 3}
+      propertyPath: molotov
+      value: 
+      objectReference: {fileID: 6301570530523685556, guid: 4d0427d6fed66ef4387069ea41a05694, type: 3}
     - target: {fileID: 7956353088117157334, guid: 887534aec87e20a4a9b6b3d8eafd7e4c, type: 3}
       propertyPath: ammoText
       value: 
