@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Photon.Pun;
+using UnityEngine.UIElements;
 
 public class Timer : MonoBehaviour
 {
@@ -18,6 +20,9 @@ public class Timer : MonoBehaviour
     {
         while (remaining > 0)
         {
+            //only count down when two players in game
+            yield return new WaitUntil(() => PhotonNetwork.PlayerList.Length == 2);
+
             // Decrement the remaining time
             remaining -= 1f;
 
@@ -36,11 +41,5 @@ public class Timer : MonoBehaviour
 
         // Update the UI text to display the timer
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-        //Debug.Log(timerText.text);
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
