@@ -146,10 +146,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basicprojectile: {fileID: 4592867263446854244, guid: 77b749ac662fc914bbedb0a262fc04c3, type: 3}
   basicblocker: {fileID: 5016842420361674654, guid: 114f22e20b57de046bfcc8ca95afe824, type: 3}
+  healprojectile: {fileID: 4592867263446854244, guid: d8cf8e23d43fedc44ad5158dc2a4a9e7, type: 3}
   camera1: {fileID: 0}
   currAmmo: 0
   blaster: {fileID: 2471248765434783160}
   ammoText: {fileID: 0}
+  VelocityProj: 20
 --- !u!114 &6742258349871404884
 MonoBehaviour:
   m_ObjectHideFlags: 0

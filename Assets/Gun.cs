@@ -119,30 +119,7 @@ public class Gun : MonoBehaviour
             //Case for Basic Projectile
             case Projectiles.BasicProjectile:
 
-                //Cast ray to find exact hit position
-                ray = camera1.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-
-                //checking if anything is hit
-                if (Physics.Raycast(ray, out hit))
-                {
-                    targetPoint = hit.point;
-                }
-                else
-                {
-                    targetPoint = ray.GetPoint(75); //75 is arbitrary distance
-                }
-
-                Vector3 direction = targetPoint - camera1.transform.position;
-
-                GameObject projectile_new = PhotonNetwork.Instantiate(basicprojectile.name, GameObject.Find("AttackPoint").transform.position, Quaternion.identity);
-                direction = targetPoint - camera1.transform.position;
-                //GameObject projectile_new = Instantiate(basicprojectile, GameObject.Find("AttackPoint").transform.position, Quaternion.identity);
-
-                //Grabs forward vector of the attack point and shoots projectile in that direction
-                projectile_new.GetComponent<Rigidbody>().AddForce(camera1.transform.forward * VelocityProj, ForceMode.Impulse);
-
-                //Destorys projectiles after a set period of time
-                StartCoroutine(DestroyProjectile(10, projectile_new));
+                fireProjectile(basicprojectile.name);
                 break;
 
             case Projectiles.BasicBlocker: //TODO: Fix the rotation of the blocker when it spawns in
@@ -162,8 +139,42 @@ public class Gun : MonoBehaviour
 
                 StartCoroutine(DestroyProjectile(5, blocker_new));
                 break;
+            case Projectiles.HealProjectile:
+
+                fireProjectile(healprojectile.name);
+                break;
+
             default:
+            
                 break;
         }
+    }
+
+    private void fireProjectile(string proj)
+    {
+        //Cast ray to find exact hit position
+        ray = camera1.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+
+        //checking if anything is hit
+        if (Physics.Raycast(ray, out hit))
+        {
+            targetPoint = hit.point;
+        }
+        else
+        {
+            targetPoint = ray.GetPoint(75); //75 is arbitrary distance
+        }
+
+        Vector3 direction = targetPoint - camera1.transform.position;
+
+        GameObject projectile_new = PhotonNetwork.Instantiate(proj, GameObject.Find("AttackPoint").transform.position, Quaternion.identity);
+        direction = targetPoint - camera1.transform.position;
+        //GameObject projectile_new = Instantiate(basicprojectile, GameObject.Find("AttackPoint").transform.position, Quaternion.identity);
+
+        //Grabs forward vector of the attack point and shoots projectile in that direction
+        projectile_new.GetComponent<Rigidbody>().AddForce(camera1.transform.forward * VelocityProj, ForceMode.Impulse);
+
+        //Destorys projectiles after a set period of time
+        StartCoroutine(DestroyProjectile(10, projectile_new));
     }
 }

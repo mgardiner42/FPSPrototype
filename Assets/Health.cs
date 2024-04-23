@@ -28,6 +28,8 @@ public class Health : MonoBehaviour
             health = MAX_HEALTH;
         }
 
+
+        //check for death
         if (health <= 0) 
         {
             if (isLocalPlayer)
