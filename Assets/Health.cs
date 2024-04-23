@@ -22,6 +22,12 @@ public class Health : MonoBehaviour
     {
         health -= _damage;
 
+        //check for negative damage
+        if (health > MAX_HEALTH)
+        {
+            health = MAX_HEALTH;
+        }
+
         if (health <= 0) 
         {
             if (isLocalPlayer)

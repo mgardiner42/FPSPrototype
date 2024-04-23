@@ -8,9 +8,10 @@ public class BasicProjectile : MonoBehaviour
     public GameObject basic_proj;
     Transform scale;
     int nextUpdate;
-    float growthRate = 0.1f;
-    float maxGrowth = 1.5f;
-    float initialGrowth = 0f;
+    public float growthRate = 0.1f;
+    public float maxGrowth = 1.5f;
+    public float initialGrowth = 0f;
+    public float damage = 25f;
 
     // Start is called before the first frame update
     void Start()
@@ -52,7 +53,7 @@ public class BasicProjectile : MonoBehaviour
             Debug.Log("Hit Player");
             if (GetComponent<PhotonView>().IsMine)
             {
-                collision.gameObject.GetComponent<Health>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, 25);
+                collision.gameObject.GetComponent<Health>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, damage);
                 PhotonNetwork.Destroy(basic_proj);
             }
         }
