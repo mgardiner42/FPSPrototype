@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6e88a6f4931e4fc40b537abda90af041, type: 3}
       propertyPath: m_Name
-      value: gray_cube
+      value: Rectangle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -128,5 +128,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.0205002, y: 1.9954922, z: 2.0180302}
-  m_Center: {x: 0.014871597, y: 0.9864187, z: -0.0055475235}
+  m_Size: {x: 2.0007067, y: 2.0022025, z: 2.0055008}
+  m_Center: {x: 0, y: 0.9897739, z: 0}
