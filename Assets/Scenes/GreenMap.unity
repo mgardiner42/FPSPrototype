@@ -374,7 +374,7 @@ PrefabInstance:
     - target: {fileID: 173883853564936502, guid: 6d7ba68a569dd0148be8e64abfa74877, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5c17b15504652844684f4ed9132d2817, type: 2}
+      objectReference: {fileID: 2100000, guid: eb4a971a627b86e4ba9f126ccbb2da90, type: 2}
     - target: {fileID: 1351582683200918612, guid: 6d7ba68a569dd0148be8e64abfa74877, type: 3}
       propertyPath: m_Name
       value: Ramp+Platform
@@ -422,7 +422,7 @@ PrefabInstance:
     - target: {fileID: 2378150260297891786, guid: 6d7ba68a569dd0148be8e64abfa74877, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5c17b15504652844684f4ed9132d2817, type: 2}
+      objectReference: {fileID: 2100000, guid: eb4a971a627b86e4ba9f126ccbb2da90, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -857,67 +857,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 315fc5ca2f1d6c24faf28809203d838b, type: 3}
---- !u!1001 &866823077
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4356700832102214286, guid: 6b3f7b0e60dd7f44d9b05ca829320a09, type: 3}
-      propertyPath: m_Name
-      value: Flag
-      objectReference: {fileID: 0}
-    - target: {fileID: 7027233440884662193, guid: 6b3f7b0e60dd7f44d9b05ca829320a09, type: 3}
-      propertyPath: sceneViewId
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7961947481318948950, guid: 6b3f7b0e60dd7f44d9b05ca829320a09, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.839766
-      objectReference: {fileID: 0}
-    - target: {fileID: 7961947481318948950, guid: 6b3f7b0e60dd7f44d9b05ca829320a09, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.49
-      objectReference: {fileID: 0}
-    - target: {fileID: 7961947481318948950, guid: 6b3f7b0e60dd7f44d9b05ca829320a09, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.849772
-      objectReference: {fileID: 0}
-    - target: {fileID: 7961947481318948950, guid: 6b3f7b0e60dd7f44d9b05ca829320a09, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7961947481318948950, guid: 6b3f7b0e60dd7f44d9b05ca829320a09, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7961947481318948950, guid: 6b3f7b0e60dd7f44d9b05ca829320a09, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7961947481318948950, guid: 6b3f7b0e60dd7f44d9b05ca829320a09, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7961947481318948950, guid: 6b3f7b0e60dd7f44d9b05ca829320a09, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7961947481318948950, guid: 6b3f7b0e60dd7f44d9b05ca829320a09, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7961947481318948950, guid: 6b3f7b0e60dd7f44d9b05ca829320a09, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6b3f7b0e60dd7f44d9b05ca829320a09, type: 3}
 --- !u!1001 &1203074069
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1132,6 +1071,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2716294626178929850, guid: c84975ec8e6f9644b86a39364ffb9497, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5c17b15504652844684f4ed9132d2817, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1388,7 +1331,7 @@ PrefabInstance:
     - target: {fileID: 173883853564936502, guid: 6d7ba68a569dd0148be8e64abfa74877, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5c17b15504652844684f4ed9132d2817, type: 2}
+      objectReference: {fileID: 2100000, guid: eb4a971a627b86e4ba9f126ccbb2da90, type: 2}
     - target: {fileID: 1351582683200918612, guid: 6d7ba68a569dd0148be8e64abfa74877, type: 3}
       propertyPath: m_Name
       value: Ramp+Platform (3)
@@ -1436,7 +1379,7 @@ PrefabInstance:
     - target: {fileID: 2378150260297891786, guid: 6d7ba68a569dd0148be8e64abfa74877, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5c17b15504652844684f4ed9132d2817, type: 2}
+      objectReference: {fileID: 2100000, guid: eb4a971a627b86e4ba9f126ccbb2da90, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1668,4 +1611,3 @@ SceneRoots:
   - {fileID: 1436452747}
   - {fileID: 120717874}
   - {fileID: 1327452309}
-  - {fileID: 866823077}
