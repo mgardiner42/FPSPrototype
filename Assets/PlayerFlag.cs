@@ -14,6 +14,7 @@ public class PlayerFlag : MonoBehaviour
         // Variable to store the mesh renders of each child object of the flag
         flagRenderers = personalFlag.GetComponentsInChildren<Renderer>();
     }
+    [PunRPC]
     public void grabFlag(){
         hasFlag = true;
         // enable each renderer to make the flag visible when player holds the flag

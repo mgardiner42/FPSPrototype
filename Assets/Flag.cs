@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using ExitGames.Client.Photon.StructWrapping;
 using Photon.Pun;
 using UnityEngine;
 
@@ -18,7 +19,7 @@ public class Flag : MonoBehaviour
                 // disable renderers when the flag is grabbed
                 childRenderer.enabled = false;
             }
-            collision.GetComponent<PlayerFlag>().grabFlag();
+            collision.GetComponent<PlayerFlag>().GetComponent<PhotonView>().RPC("grabFlag", RpcTarget.All);
         }
     }
 }
