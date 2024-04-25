@@ -9,6 +9,7 @@ public class Molotov : MonoBehaviour
     public GameObject molotov;
     public GameObject aoe; //stands for area of effect
     public float damageRadius = 30;
+    public int damage = 10;
     bool collided = false;
 
     // Start is called before the first frame update
@@ -40,7 +41,8 @@ public class Molotov : MonoBehaviour
             float scale = damageRadius * 10;
             aoe.transform.localScale = new Vector3(aoe.transform.localScale.x * scale, aoe.transform.localScale.y * scale, aoe.transform.localScale.z * scale);
             collided = true;
-            
+            molotov.GetComponent<MeshRenderer>().enabled = false;
+
             //StartCoroutine(MolotovExplosion());
             //PhotonNetwork.Destroy(molotov);
         }
@@ -48,6 +50,7 @@ public class Molotov : MonoBehaviour
 
     IEnumerator MolotovExplosion()
     {
+        
         float scale = damageRadius * 10;
         aoe.transform.localScale += new Vector3(aoe.transform.localScale.x * scale, aoe.transform.localScale.y * scale, aoe.transform.localScale.z * scale);
         PhotonNetwork.Destroy(molotov);
