@@ -156,6 +156,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 711560726}
   flagPos: {x: 0, y: 1.5, z: 20}
   flag: {fileID: 4356700832102214286, guid: 6b3f7b0e60dd7f44d9b05ca829320a09, type: 3}
+  spawnA: {x: 0, y: 8, z: 20}
+  spawnB: {x: 0, y: 8, z: -20}
 --- !u!4 &330990359
 Transform:
   m_ObjectHideFlags: 0
@@ -289,6 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4179b9d1d676f4b4a96ce294b3b50cc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  degreesPerSecond: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

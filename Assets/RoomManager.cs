@@ -14,6 +14,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public Vector3 flagPos;
     public GameObject flag;
+    public Vector3 spawnA;
+    public Vector3 spawnB;
 
     void Awake()
     {
@@ -59,7 +61,13 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public void SpawnPlayer() 
     {
+        if (PhotonNetwork.PlayerList.Length < 2){
+            spawnPoint.position = spawnA;
+        } else {
+            spawnPoint.position = spawnB;
+        }
         GameObject _player = PhotonNetwork.Instantiate(player.name, spawnPoint.position, Quaternion.identity);
+        _player.GetComponent<Health>().spawnpoint = spawnPoint.position;
 
         //Tie player controls to this player
         _player.GetComponent<PlayerSetup>().IsLocalPlayer();
