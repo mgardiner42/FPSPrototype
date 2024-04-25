@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 9071468676209784126, guid: bc721ff5c40daf641868e0c9f3e87c1e, type: 3}
   spawnPoint: {fileID: 711560726}
-  flagPos: {x: 0, y: 1.5, z: 20}
+  flagPos: {x: 0, y: 1.5, z: 0}
   flag: {fileID: 4356700832102214286, guid: 6b3f7b0e60dd7f44d9b05ca829320a09, type: 3}
   spawnA: {x: 0, y: 8, z: 20}
   spawnB: {x: 0, y: 8, z: -20}
