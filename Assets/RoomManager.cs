@@ -56,7 +56,9 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
         //Spawn the player
         SpawnPlayer();
-        SpawnFlag();
+        if (PhotonNetwork.IsMasterClient){
+            SpawnFlag();
+        }
     }
 
     public void SpawnPlayer() 
