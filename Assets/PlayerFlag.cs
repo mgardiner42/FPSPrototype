@@ -38,6 +38,7 @@ public class PlayerFlag : MonoBehaviour
         }
         // detatch the flag from the its current parent (the player holding the flag)
         gameFlag.SetParent(null);
+        gameFlag.position = transform.position;
         // enable the renderers to make the flag visible again
         foreach(Renderer r in gameFlag.GetComponentsInChildren<Renderer>()){
             r.enabled = true;

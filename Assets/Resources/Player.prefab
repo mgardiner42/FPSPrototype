@@ -1666,6 +1666,7 @@ MonoBehaviour:
   movement: {fileID: 6666435350839284214}
   camera: {fileID: 2825667164706095649}
   hud: {fileID: 2876749618849749910}
+  crosshair: {fileID: 5201025355127992141}
 --- !u!114 &1114848210950586412
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     [Space]
     public Transform spawnPoint;
 
-    public Vector3 flagPos;
+    public Transform flagSpawn;
     public GameObject flag;
     public Vector3 spawnA;
     public Vector3 spawnB;
@@ -61,6 +61,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public void SpawnPlayer() 
     {
+        // First player goes spawnA, second to spawnB
         if (PhotonNetwork.PlayerList.Length < 2){
             spawnPoint.position = spawnA;
         } else {
@@ -75,6 +76,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
     }
 
     public void SpawnFlag() {
-        PhotonNetwork.Instantiate(flag.name, flagPos, Quaternion.identity);
+        PhotonNetwork.Instantiate(flag.name, flagSpawn.position, Quaternion.identity);
     }
 }

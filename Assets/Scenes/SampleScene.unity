@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 9071468676209784126, guid: bc721ff5c40daf641868e0c9f3e87c1e, type: 3}
   spawnPoint: {fileID: 711560726}
-  flagPos: {x: 0, y: 1.5, z: 0}
+  flagSpawn: {fileID: 561816425}
   flag: {fileID: 4356700832102214286, guid: 6b3f7b0e60dd7f44d9b05ca829320a09, type: 3}
   spawnA: {x: 0, y: 8, z: 20}
   spawnB: {x: 0, y: 8, z: -20}
@@ -292,6 +292,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   degreesPerSecond: 0
+--- !u!1 &561816424
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 561816425}
+  m_Layer: 0
+  m_Name: FlagSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &561816425
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561816424}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,3 +562,4 @@ SceneRoots:
   - {fileID: 1204580363}
   - {fileID: 711560726}
   - {fileID: 476268330}
+  - {fileID: 561816425}
