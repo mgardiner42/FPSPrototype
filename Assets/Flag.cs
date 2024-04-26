@@ -12,6 +12,7 @@ public class Flag : MonoBehaviour
         childRenderers = GetComponentsInChildren<Renderer>();
     }
 
+    [PunRPC]
     private void OnTriggerEnter(Collider collision){
         if (collision.transform.tag == "Player" && transform.parent == null){
             transform.SetParent(collision.transform);

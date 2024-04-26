@@ -13,7 +13,9 @@ public class PlayerFlag : MonoBehaviour
     private void Start(){
         // Variable to store the mesh renders of each child object of the flag
         flagRenderers = personalFlag.GetComponentsInChildren<Renderer>();
+        gameFlag = GameObject.FindWithTag("Game Flag").transform;
     }
+
     [PunRPC]
     public void grabFlag(){
         hasFlag = true;
@@ -29,12 +31,6 @@ public class PlayerFlag : MonoBehaviour
         // disables the flag on the players back to show they no longer carry the flag
         foreach(Renderer r in flagRenderers){
             r.enabled = false;
-        }
-        
-        foreach(Transform child in transform){
-            if (child.CompareTag("Game Flag")){
-                gameFlag = child.gameObject.transform;
-            }
         }
         // detatch the flag from the its current parent (the player holding the flag)
         gameFlag.SetParent(null);
