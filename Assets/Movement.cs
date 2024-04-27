@@ -43,14 +43,17 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.AddForce(CalculateMovement(walkSpeed), ForceMode.VelocityChange);
+        rb.velocity += CalculateMovement(walkSpeed);
+        //rb.AddForce(CalculateMovement(walkSpeed), ForceMode.VelocityChange);
 
         //Jumping. Doesnt stop normal movement, cause thats fun
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            //rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            rb.velocity += Vector3.up * jumpForce;
             grounded = false;
         }
+
     }
 
     Vector3 CalculateMovement(float _speed)
