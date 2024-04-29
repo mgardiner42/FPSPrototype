@@ -23,7 +23,7 @@ public class Ammo : MonoBehaviour
 {
     //Enummeration for all the differnt types of projectiles
     //Can be added to as development continues
-    int MAX_COUNT = 20;
+    public int MAX_COUNT = 20;
     int timeUpdate = 2;
     public int charge;
     public TextMeshProUGUI ammoText;

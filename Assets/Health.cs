@@ -34,7 +34,7 @@ public class Health : MonoBehaviour
         {
             if (isLocalPlayer)
             {
-                RespawnPlayer();
+                GetComponent<PhotonView>().RPC("RespawnPlayer", RpcTarget.All);
             }
             // add message "You Died!"
             // GUI.Label(new Rect(50, 50, 100, 20), "You Died!");
@@ -65,11 +65,13 @@ public class Health : MonoBehaviour
     //    }
     //}
 
+    [PunRPC]
     public void RespawnPlayer() {
         if(GetComponent<PlayerFlag>().hasFlag){
             GetComponent<PlayerFlag>().GetComponent<PhotonView>().RPC("dropFlag", RpcTarget.All);
         }
         transform.position = spawnpoint;
         health = MAX_HEALTH;
+        GetComponent<Ammo>().charge = GetComponent<Ammo>().MAX_COUNT;
     }
 }

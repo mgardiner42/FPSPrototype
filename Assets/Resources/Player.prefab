@@ -1853,6 +1853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 656afb0f203eb454ab2d26d9e19bbe3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MAX_COUNT: 20
   charge: 20
   ammoText: {fileID: 8793791030385809534}
 --- !u!4 &4533061447295711866 stripped
@@ -1870,11 +1871,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -4901358241168473967, guid: 6b3f7b0e60dd7f44d9b05ca829320a09, type: 3}
       propertyPath: m_SynchronizeVelocity
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4901358241168473967, guid: 6b3f7b0e60dd7f44d9b05ca829320a09, type: 3}
       propertyPath: m_SynchronizeAngularVelocity
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 75181485722931327, guid: 6b3f7b0e60dd7f44d9b05ca829320a09, type: 3}
       propertyPath: m_Enabled
@@ -1950,7 +1951,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8193962014219021203, guid: 6b3f7b0e60dd7f44d9b05ca829320a09, type: 3}
       propertyPath: m_IsKinematic
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7112380667457741438, guid: 6b3f7b0e60dd7f44d9b05ca829320a09, type: 3}

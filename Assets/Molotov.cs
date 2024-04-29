@@ -37,7 +37,7 @@ public class Molotov : MonoBehaviour
     {
         if (collided == false)
         {
-            molotov.GetComponent<Rigidbody>().isKinematic = true;
+            //molotov.GetComponent<Rigidbody>().isKinematic = true;
             float scale = damageRadius * 10;
             aoe.transform.localScale = new Vector3(aoe.transform.localScale.x * scale, aoe.transform.localScale.y * scale, aoe.transform.localScale.z * scale);
             collided = true;
