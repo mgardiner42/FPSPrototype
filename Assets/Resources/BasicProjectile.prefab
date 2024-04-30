@@ -151,8 +151,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basic_proj: {fileID: 4592867263446854244}
-  growthRate: 0.1
-  maxGrowth: 1.5
+  growthRate: 0.3
+  maxGrowth: 3
   initialGrowth: 0
   damage: 25
 --- !u!114 &572932088746286002

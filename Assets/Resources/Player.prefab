@@ -2010,7 +2010,7 @@ MonoBehaviour:
   blaster: {fileID: 0}
   ammoText: {fileID: 8793791030385809534}
   weaponText: {fileID: 4820463040701166726}
-  VelocityProj: 40
+  VelocityProj: 70
 --- !u!114 &8987890867791293990
 MonoBehaviour:
   m_ObjectHideFlags: 0
