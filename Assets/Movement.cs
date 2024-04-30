@@ -43,8 +43,7 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.velocity += CalculateMovement(walkSpeed);
-        //rb.AddForce(CalculateMovement(walkSpeed), ForceMode.VelocityChange);
+        rb.AddForce(CalculateMovement(walkSpeed), ForceMode.VelocityChange);
 
         //Jumping. Doesnt stop normal movement, cause thats fun
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
@@ -78,16 +77,7 @@ public class Movement : MonoBehaviour
             velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
             velocityChange.y = 0;
         }
-        else 
-        {
-            //If we arent using keys and touching the ground, apply friction
-            if (grounded && velocity.magnitude > minVelFriction) 
-            {
-                velocityChange = nullVelocity - velocity;
-                velocityChange = velocityChange.normalized * friction;
-                velocityChange.y = 0;
-            }
-        }
+
 
         return velocityChange;
     }

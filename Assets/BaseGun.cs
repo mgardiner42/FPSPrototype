@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//DEPRICATED, VIEW GUN.CS FOR IN USE GUN FUNCTIONS
 public class BaseGun : MonoBehaviour
 {
     public Camera camera;

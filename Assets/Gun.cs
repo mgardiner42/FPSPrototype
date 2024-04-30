@@ -31,6 +31,7 @@ public class Gun : MonoBehaviour
 
     //HUD Vars
     public TextMeshProUGUI ammoText;
+    public TextMeshProUGUI weaponText;
 
     //Projectile speeds
     public float VelocityProj = 20;
@@ -110,6 +111,7 @@ public class Gun : MonoBehaviour
                 ammoNum += 1;
             }
             currAmmo = ammoVals[ammoNum].ammo;
+            //weaponText.text = (ammoNum + 1).ToString();
         }
     }
 
