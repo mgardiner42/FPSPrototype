@@ -1863,9 +1863,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c31924472b2f0a24f95ee889b5cb7612, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 6
-  maxVelocityChange: 8
-  jumpForce: 5
+  walkSpeed: 12
+  maxVelocityChange: 16
+  jumpForce: 9
   friction: 0.4
   minVelFriction: 0.1
   groundMask:
@@ -2043,7 +2043,7 @@ MonoBehaviour:
   enemyPointText: {fileID: 7626633090854744191}
   endGameText: {fileID: 2723714060230033887}
   secondsToScore: 1
-  scoreToWin: 10
+  scoreToWin: 100
 --- !u!114 &7352661613148747476
 MonoBehaviour:
   m_ObjectHideFlags: 0
