@@ -11,6 +11,7 @@ public class PlayerSetup : MonoBehaviour
 
     public GameObject camera;
     public GameObject hud;
+    public GameObject weaponThirdPerson;
     public TextMeshProUGUI crosshair;
     public void IsLocalPlayer()
     {
@@ -18,6 +19,7 @@ public class PlayerSetup : MonoBehaviour
         // movement.enabled = true;
         camera.SetActive(true);
         hud.SetActive(true);
+        weaponThirdPerson.SetActive(false);
         StartCoroutine(Countdown());
     }
 
