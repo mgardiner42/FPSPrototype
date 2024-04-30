@@ -11,8 +11,13 @@ public class Points : MonoBehaviour
     public int enemyPoints;
     public TextMeshProUGUI pointText;
     public TextMeshProUGUI enemyPointText;
+    public TextMeshProUGUI endGameText;
     public int secondsToScore;
     GameObject gameFlag;
+
+    public int scoreToWin = 100;
+
+    private bool isActive = true;
 
     void Start()
     {
@@ -24,7 +29,7 @@ public class Points : MonoBehaviour
     }
 
     private IEnumerator AddPoints(){
-        while (true){
+        while (isActive){
             // add points and update the HUD
             if(GetComponent<PlayerFlag>().hasFlag){
                 myPoints += 1;
@@ -32,6 +37,18 @@ public class Points : MonoBehaviour
             } else if(gameFlag.transform.parent != null){
                 enemyPoints += 1;
                 enemyPointText.text = enemyPoints.ToString();
+            }
+
+            //check for win condition
+            if (myPoints >= scoreToWin)
+            {
+                endGameText.text = "YOU WIN";
+                isActive = false;
+            }
+            if (enemyPoints >= scoreToWin) 
+            {
+                endGameText.text = "YOU LOSE";
+                isActive = false;
             }
 
             // add a point every secondsToScore
