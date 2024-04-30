@@ -111,7 +111,7 @@ public class Gun : MonoBehaviour
                 ammoNum += 1;
             }
             currAmmo = ammoVals[ammoNum].ammo;
-            //weaponText.text = (ammoNum + 1).ToString();
+            weaponText.text = (ammoNum + 1).ToString();
         }
     }
 
