@@ -1684,6 +1684,7 @@ MonoBehaviour:
   isLocalPlayer: 0
   spawnpoint: {x: 0, y: 10, z: 0}
   healthText: {fileID: 4343025889462174358}
+  gun: {fileID: 3865069188379074752}
 --- !u!114 &-2033075831518789698
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,6 +16,8 @@ public class Health : MonoBehaviour
 
     public TextMeshProUGUI healthText;
 
+    public GameObject gun;
+
     //Remote procedure call. This allows another player to run these scripts, such as if they deal damage
     [PunRPC]
     public void TakeDamage(int _damage)
@@ -34,7 +36,7 @@ public class Health : MonoBehaviour
         {
             if (isLocalPlayer)
             {
-                GetComponent<PhotonView>().RPC("RespawnPlayer", RpcTarget.All);
+                RespawnPlayer();
             }
             // add message "You Died!"
             // GUI.Label(new Rect(50, 50, 100, 20), "You Died!");
@@ -72,6 +74,6 @@ public class Health : MonoBehaviour
         }
         transform.position = spawnpoint;
         health = MAX_HEALTH;
-        GetComponent<Ammo>().charge = GetComponent<Ammo>().MAX_COUNT;
+        gun.GetComponent<Ammo>().charge = gun.GetComponent<Ammo>().MAX_COUNT;
     }
 }
