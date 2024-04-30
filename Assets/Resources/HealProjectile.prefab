@@ -153,7 +153,7 @@ MonoBehaviour:
   basic_proj: {fileID: 4592867263446854244}
   growthRate: 0
   maxGrowth: 1.5
-  initialGrowth: 0.5
+  initialGrowth: 3
   damage: -25
 --- !u!114 &572932088746286002
 MonoBehaviour:
