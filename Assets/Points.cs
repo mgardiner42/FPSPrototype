@@ -24,8 +24,26 @@ public class Points : MonoBehaviour
         gameFlag = GameObject.FindWithTag("Game Flag");
 
         // start a coroutine that consistently checks if the player holds the flag
-        StartCoroutine(AddPoints());
+        if (PhotonNetwork.IsMasterClient){
+            StartCoroutine(AddPoints());
+        }
 
+    }
+    private void Update(){
+        pointText.text = myPoints.ToString();
+        enemyPointText.text = enemyPoints.ToString();
+
+        //check for win condition
+        if (myPoints >= scoreToWin)
+        {
+            endGameText.text = "YOU WIN";
+            isActive = false;
+        }
+        if (enemyPoints >= scoreToWin) 
+        {
+            endGameText.text = "YOU LOSE";
+            isActive = false;
+        }
     }
 
     private IEnumerator AddPoints(){
@@ -33,27 +51,36 @@ public class Points : MonoBehaviour
             // add points and update the HUD
             if(GetComponent<PlayerFlag>().hasFlag){
                 myPoints += 1;
-                pointText.text = myPoints.ToString();
             } else if(gameFlag.transform.parent != null){
                 enemyPoints += 1;
-                enemyPointText.text = enemyPoints.ToString();
             }
 
-            //check for win condition
-            if (myPoints >= scoreToWin)
-            {
-                endGameText.text = "YOU WIN";
-                isActive = false;
-            }
-            if (enemyPoints >= scoreToWin) 
-            {
-                endGameText.text = "YOU LOSE";
-                isActive = false;
+            if(PhotonNetwork.IsMasterClient){
+                GetComponent<PhotonView>().RPC("syncPoints", RpcTarget.All, myPoints, enemyPoints);
             }
 
             // add a point every secondsToScore
             yield return new WaitForSeconds(secondsToScore);
         }
     }
- 
+
+    [PunRPC]
+    private void syncPoints(int me, int enemy){
+        myPoints = me;
+        enemyPoints = enemy;
+    }
+
+      public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(myPoints);
+            stream.SendNext(enemyPoints);
+        }
+        else
+        {
+            enemyPoints = (int)stream.ReceiveNext();
+            myPoints = (int)stream.ReceiveNext();
+        }
+    }
 }
