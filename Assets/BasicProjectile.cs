@@ -53,8 +53,12 @@ public class BasicProjectile : MonoBehaviour
             Debug.Log("Hit Player");
             if (GetComponent<PhotonView>().IsMine)
             {
-                collision.gameObject.GetComponent<Health>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, damage);
-                PhotonNetwork.Destroy(basic_proj);
+                //Dont deal damage to the local player
+                if (collision.gameObject.GetComponent<Health>().isLocalPlayer == false || damage <= 0)
+                {
+                    collision.gameObject.GetComponent<Health>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, damage);
+                    PhotonNetwork.Destroy(basic_proj);
+                }
             }
         }
     }

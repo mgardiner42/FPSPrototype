@@ -48,7 +48,7 @@ public class Gun : MonoBehaviour
 
         //TODO: as more weapons are added, creating method to auto set up all types
 
-        AmmoCounts p = new AmmoCounts {ammo = Projectiles.BasicProjectile, chargeCount = 2};
+        AmmoCounts p = new AmmoCounts {ammo = Projectiles.BasicProjectile, chargeCount = 1};
         AmmoCounts b = new AmmoCounts { ammo = Projectiles.BasicBlocker, chargeCount = 3 };
         AmmoCounts h = new AmmoCounts { ammo = Projectiles.HealProjectile, chargeCount = 4 };
         AmmoCounts m = new AmmoCounts { ammo = Projectiles.Molotov, chargeCount = 0 }; //Change back to 7 when done developing
