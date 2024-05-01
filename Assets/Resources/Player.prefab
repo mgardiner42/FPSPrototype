@@ -831,7 +831,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6193297243411337837
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1971,6 +1971,7 @@ MonoBehaviour:
   hud: {fileID: 2876749618849749910}
   weaponThirdPerson: {fileID: 2182398037412933477}
   crosshair: {fileID: 5201025355127992141}
+  timerText: {fileID: 88923348646275766}
 --- !u!114 &1114848210950586412
 MonoBehaviour:
   m_ObjectHideFlags: 0

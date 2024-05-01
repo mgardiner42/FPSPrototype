@@ -37,5 +37,6 @@ public class PlayerSetup : MonoBehaviour
         // put the crosshair back and enable movement
         crosshair.text = "+";
         movement.enabled = true;
+        GetComponent<Timer>().startTime();
     }
 }

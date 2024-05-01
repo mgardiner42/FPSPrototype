@@ -10,23 +10,21 @@ public class Timer : MonoBehaviour
     public TextMeshProUGUI timerText;
     public float remaining = 600f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+
+    public void startTime(){
         StartCoroutine(UpdateTimer());
     }
 
-      private IEnumerator UpdateTimer()
+    private IEnumerator UpdateTimer()
     {
         while (remaining > 0)
         {
-            //only count down when two players in game
-            yield return new WaitUntil(() => PhotonNetwork.PlayerList.Length == 2);
+            if(PhotonNetwork.IsMasterClient){
+                GetComponent<PhotonView>().RPC("syncTime", RpcTarget.All, remaining);
+            }
 
             // Decrement the remaining time
             remaining -= 1f;
-
-            // Update the timer display
             UpdateTimerDisplay();
 
             // Wait for the next frame
@@ -41,5 +39,9 @@ public class Timer : MonoBehaviour
 
         // Update the UI text to display the timer
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
+    private void syncTime(float time){
+        remaining = time;
     }
 }
