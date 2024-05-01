@@ -12,6 +12,8 @@ public class BasicProjectile : MonoBehaviour
     public float maxGrowth = 1.5f;
     public float initialGrowth = 0f;
     public int damage = 25;
+    public float gracePeriod = 0.5f;
+    float lifespan = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +34,7 @@ public class BasicProjectile : MonoBehaviour
             GrowProjectile(growthRate);
         }
 
-
+        lifespan += Time.deltaTime;
     }
 
     void GrowProjectile(float growth)
@@ -54,7 +56,7 @@ public class BasicProjectile : MonoBehaviour
             if (GetComponent<PhotonView>().IsMine)
             {
                 //Dont deal damage to the local player
-                if (collision.gameObject.GetComponent<Health>().isLocalPlayer == false || damage <= 0)
+                if (lifespan >= gracePeriod || collision.gameObject.GetComponent<Health>().isLocalPlayer == false || damage <= 0)
                 {
                     collision.gameObject.GetComponent<Health>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, damage);
                     PhotonNetwork.Destroy(basic_proj);

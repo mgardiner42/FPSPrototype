@@ -113,6 +113,19 @@ public class Gun : MonoBehaviour
             currAmmo = ammoVals[ammoNum].ammo;
             weaponText.text = (ammoNum + 1).ToString();
         }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (ammoNum <= 0)
+            {
+                ammoNum = ammoVals.Count - 1;
+            }
+            else
+            {
+                ammoNum -= 1;
+            }
+            currAmmo = ammoVals[ammoNum].ammo;
+            weaponText.text = (ammoNum + 1).ToString();
+        }
     }
 
     //Method to shoot projectiles -- Switches the guntype depending on the current Ammo selected
