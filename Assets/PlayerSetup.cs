@@ -16,7 +16,7 @@ public class PlayerSetup : MonoBehaviour
     public void IsLocalPlayer()
     {
         // IF TESTING YOU CAN ENABLE MOVEMENT HERE WITHOUT WAITING FOR TWO PLAYERS
-        movement.enabled = true;
+        // movement.enabled = true;
         camera.SetActive(true);
         hud.SetActive(true);
         weaponThirdPerson.SetActive(false);

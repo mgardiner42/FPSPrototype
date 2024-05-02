@@ -39,10 +39,6 @@ public class Timer : MonoBehaviour
 
     [PunRPC]
     private void syncTime(float time){
-        if(!PhotonNetwork.IsMasterClient){
-            Debug.Log(remaining);
-            Debug.Log(timerText.text);
-        }
         remaining = time;
     }
 
