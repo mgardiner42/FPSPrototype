@@ -14,8 +14,12 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public Transform flagSpawn;
     public GameObject flag;
-    public Vector3 spawnA;
-    public Vector3 spawnB;
+    //public Vector3 spawnA;
+    //public Vector3 spawnB;
+
+    public Transform spawnPointA;
+    public Transform spawnPointB;
+
 
     void Awake()
     {
@@ -65,9 +69,9 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         // First player goes spawnA, second to spawnB
         if (PhotonNetwork.PlayerList.Length < 2){
-            spawnPoint.position = spawnA;
+            spawnPoint.position = spawnPointA.position;
         } else {
-            spawnPoint.position = spawnB;
+            spawnPoint.position = spawnPointB.position;
         }
         GameObject _player = PhotonNetwork.Instantiate(player.name, spawnPoint.position, Quaternion.identity);
         _player.GetComponent<Health>().spawnpoint = spawnPoint.position;
