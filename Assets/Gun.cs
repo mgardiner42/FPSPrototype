@@ -100,7 +100,7 @@ public class Gun : MonoBehaviour
         } 
 
        //switching ammo
-       if(Input.GetKeyDown(KeyCode.Q))
+       if(Input.GetKeyDown(KeyCode.E))
         {
             if(ammoNum >= ammoVals.Count-1)
             {
@@ -113,7 +113,7 @@ public class Gun : MonoBehaviour
             currAmmo = ammoVals[ammoNum].ammo;
             weaponText.text = (ammoNum + 1).ToString();
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             if (ammoNum <= 0)
             {
