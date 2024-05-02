@@ -656,8 +656,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 711560726}
   flagSpawn: {fileID: 1777551060}
   flag: {fileID: 4356700832102214286, guid: 6b3f7b0e60dd7f44d9b05ca829320a09, type: 3}
-  spawnPointA: {fileID: 0}
-  spawnPointB: {fileID: 0}
+  spawnPointA: {fileID: 644901543}
+  spawnPointB: {fileID: 360524113}
 --- !u!4 &330990359
 Transform:
   m_ObjectHideFlags: 0
@@ -673,6 +673,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &360524113 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 99354146392444663, guid: c25bc469a9acc774aac839e24ccfc32e, type: 3}
+  m_PrefabInstance: {fileID: 2005529437}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &611627353
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,6 +784,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
+--- !u!4 &644901543 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 99354146392444663, guid: c25bc469a9acc774aac839e24ccfc32e, type: 3}
+  m_PrefabInstance: {fileID: 953710978}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &647721711
 PrefabInstance:
   m_ObjectHideFlags: 0
