@@ -649,8 +649,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 711560726}
   flagSpawn: {fileID: 1777551060}
   flag: {fileID: 4356700832102214286, guid: 6b3f7b0e60dd7f44d9b05ca829320a09, type: 3}
-  spawnPointTransformA: {fileID: 310869757}
-  spawnPointTransformB: {fileID: 711560726}
+  spawnPointA: {fileID: 310869757}
+  spawnPointB: {fileID: 711560726}
 --- !u!4 &330990359
 Transform:
   m_ObjectHideFlags: 0
@@ -1883,7 +1883,6 @@ SceneRoots:
   - {fileID: 330990359}
   - {fileID: 1204580363}
   - {fileID: 231077088}
-  - {fileID: 711560726}
   - {fileID: 1027454963653560212}
   - {fileID: 756228200}
   - {fileID: 1203074069}
@@ -1905,3 +1904,4 @@ SceneRoots:
   - {fileID: 1777551060}
   - {fileID: 1525391697}
   - {fileID: 310869756}
+  - {fileID: 711560726}
