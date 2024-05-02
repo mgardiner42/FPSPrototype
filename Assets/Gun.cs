@@ -36,6 +36,13 @@ public class Gun : MonoBehaviour
     //Projectile speeds
     public float VelocityProj = 20;
 
+    // sound effect
+    private AudioSource paintballSound; // the paintball sound effect
+    // Paintball gun shot.wav by Michaelvelo --
+    // https://freesound.org/s/366835/ --
+    // License: Attribution NonCommercial 3.0
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +67,10 @@ public class Gun : MonoBehaviour
         ammoVals.Add(h);
         ammoVals.Add(m);
         currAmmo = Projectiles.BasicProjectile;
+
+        // Setting Up Sound
+        paintballSound = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -137,6 +148,7 @@ public class Gun : MonoBehaviour
             //Case for Basic Projectile
             case Projectiles.BasicProjectile:
 
+                paintballSound.Play();
                 fireProjectile(basicprojectile.name);
                 break;
 
