@@ -37,6 +37,23 @@ public class Gun : MonoBehaviour
     //Projectile speeds
     public float VelocityProj = 20;
 
+    // sound effect
+    private AudioSource audioSource; // the paintball sound effect
+
+    //[SerializeField]
+    public AudioClip basicShotSound;
+
+
+    /* Paintball gun shot.wav by Michaelvelo --
+     * https://freesound.org/s/366835/ --
+     * License: Attribution NonCommercial 3.0 */
+
+    public AudioClip barrierSound;
+
+    /* Bonk - [Rpg] 1 by colorsCrimsonTears -- 
+     * https://freesound.org/s/641894/ -- 
+     * License: Creative Commons 0 */
+
     // Array of weapons
     string[] weapons = {"Gun", "BasicBlocker", "HealGun", "Molotov"};
     int currentWeapon = 0;
@@ -65,6 +82,9 @@ public class Gun : MonoBehaviour
         ammoVals.Add(h);
         ammoVals.Add(m);
         currAmmo = Projectiles.BasicProjectile;
+
+        // Setting Up Sound
+        audioSource = GetComponent<AudioSource>();
 
         weaponText.text = weapons[0].ToString();
     }
@@ -145,11 +165,17 @@ public class Gun : MonoBehaviour
 
             //Case for Basic Projectile
             case Projectiles.BasicProjectile:
+                // play sound for primary fire
+                audioSource.clip = basicShotSound;
+                audioSource.Play();
 
                 fireProjectile(basicprojectile.name);
                 break;
 
             case Projectiles.BasicBlocker:
+                // play sound for blocker
+                audioSource.clip = barrierSound;
+                audioSource.Play();
                 
                 //Cast ray to find exact hit position
                 ray = camera1.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
