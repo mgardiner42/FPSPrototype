@@ -155,6 +155,7 @@ MonoBehaviour:
   maxGrowth: 2
   initialGrowth: 0
   damage: 25
+  gracePeriod: 0.5
 --- !u!114 &572932088746286002
 MonoBehaviour:
   m_ObjectHideFlags: 0

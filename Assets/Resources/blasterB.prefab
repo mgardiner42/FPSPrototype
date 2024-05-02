@@ -157,7 +157,8 @@ MonoBehaviour:
   ammoText: {fileID: 0}
   weaponText: {fileID: 0}
   VelocityProj: 20
-  audioSource: {fileID: 3687007672983373231}
+  basicShotSound: {fileID: 8300000, guid: 0e40f9c016084794f84748f41b8afe1a, type: 3}
+  barrierSound: {fileID: 8300000, guid: 64466fa24e5ab0e448c4d6d559c7bf95, type: 3}
 --- !u!114 &6742258349871404884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,7 +208,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0e40f9c016084794f84748f41b8afe1a, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
