@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7300779800743014961}
   - component: {fileID: 3428129663298121005}
   m_Layer: 0
-  m_Name: CITY MAP
+  m_Name: CITY MAP (OLD)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
