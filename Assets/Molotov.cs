@@ -8,7 +8,8 @@ public class Molotov : MonoBehaviour
 
     public GameObject molotov;
     public GameObject aoe; //stands for area of effect
-    public float damageRadius = 30;
+    public GameObject particles;
+    public float damageRadius = 100;
     public int damage = 10;
     bool collided = false;
 
@@ -38,10 +39,11 @@ public class Molotov : MonoBehaviour
         if (collided == false)
         {
             //molotov.GetComponent<Rigidbody>().isKinematic = true;
-            float scale = damageRadius * 10;
+            float scale = damageRadius * 100;
             aoe.transform.localScale = new Vector3(aoe.transform.localScale.x * scale, aoe.transform.localScale.y * scale, aoe.transform.localScale.z * scale);
             collided = true;
             molotov.GetComponent<MeshRenderer>().enabled = false;
+            particles.GetComponent<ParticleSystem>().enableEmission = true;
 
             //StartCoroutine(MolotovExplosion());
             //PhotonNetwork.Destroy(molotov);

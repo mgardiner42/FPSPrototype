@@ -73,7 +73,7 @@ public class Gun : MonoBehaviour
         AmmoCounts p = new AmmoCounts {ammo = Projectiles.BasicProjectile, chargeCount = 1};
         AmmoCounts b = new AmmoCounts { ammo = Projectiles.BasicBlocker, chargeCount = 3 };
         AmmoCounts h = new AmmoCounts { ammo = Projectiles.HealProjectile, chargeCount = 4 };
-        AmmoCounts m = new AmmoCounts { ammo = Projectiles.Molotov, chargeCount = 0 }; //Change back to 7 when done developing
+        AmmoCounts m = new AmmoCounts { ammo = Projectiles.Molotov, chargeCount = 7 }; 
 
         //Ammo to begin the Round with
         ammoNum = 0;
