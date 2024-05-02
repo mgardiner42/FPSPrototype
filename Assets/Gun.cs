@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using System;
 
 public class Gun : MonoBehaviour
 {
@@ -36,23 +37,9 @@ public class Gun : MonoBehaviour
     //Projectile speeds
     public float VelocityProj = 20;
 
-    // sound effect
-    private AudioSource audioSource; // the paintball sound effect
-
-    //[SerializeField]
-    public AudioClip basicShotSound;
-
-
-    /* Paintball gun shot.wav by Michaelvelo --
-     * https://freesound.org/s/366835/ --
-     * License: Attribution NonCommercial 3.0 */
-
-    public AudioClip barrierSound;
-
-    /* Bonk - [Rpg] 1 by colorsCrimsonTears -- 
-     * https://freesound.org/s/641894/ -- 
-     * License: Creative Commons 0 */
-
+    // Array of weapons
+    string[] weapons = {"Gun", "BasicBlocker", "HealGun", "Molotov"};
+    int currentWeapon = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -79,9 +66,7 @@ public class Gun : MonoBehaviour
         ammoVals.Add(m);
         currAmmo = Projectiles.BasicProjectile;
 
-        // Setting Up Sound
-        audioSource = GetComponent<AudioSource>();
-
+        weaponText.text = weapons[0].ToString();
     }
 
     // Update is called once per frame
@@ -133,7 +118,8 @@ public class Gun : MonoBehaviour
                 ammoNum += 1;
             }
             currAmmo = ammoVals[ammoNum].ammo;
-            weaponText.text = (ammoNum + 1).ToString();
+            currentWeapon += 1;
+            weaponText.text = weapons[Math.Abs((currentWeapon) % 4)].ToString();
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -146,7 +132,8 @@ public class Gun : MonoBehaviour
                 ammoNum -= 1;
             }
             currAmmo = ammoVals[ammoNum].ammo;
-            weaponText.text = (ammoNum + 1).ToString();
+            currentWeapon -= 1;
+            weaponText.text = weapons[Math.Abs((currentWeapon) % 4)].ToString();
         }
     }
 
@@ -158,20 +145,12 @@ public class Gun : MonoBehaviour
 
             //Case for Basic Projectile
             case Projectiles.BasicProjectile:
-                // play sound for primary fire
-                audioSource.clip = basicShotSound;
-                audioSource.Play();
 
                 fireProjectile(basicprojectile.name);
                 break;
 
             case Projectiles.BasicBlocker:
-
-                // play sound for blocker
-                audioSource.clip = barrierSound;
-                audioSource.Play();
-
-
+                
                 //Cast ray to find exact hit position
                 ray = camera1.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
 
