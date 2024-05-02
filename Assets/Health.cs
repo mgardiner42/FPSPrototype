@@ -21,6 +21,10 @@ public class Health : MonoBehaviour
     private AudioSource audioSource;
     public AudioClip deathSound;
 
+      /* https://en.wikipedia.org/wiki/File:Wilhelm_Scream.ogg
+       * This file is made available under the Creative Commons CC0 
+       * 1.0 Universal Public Domain Dedication. */
+
     //Remote procedure call. This allows another player to run these scripts, such as if they deal damage
     [PunRPC]
     public void TakeDamage(int _damage)
