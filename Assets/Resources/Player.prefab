@@ -1972,6 +1972,7 @@ MonoBehaviour:
   hud: {fileID: 2876749618849749910}
   weaponThirdPerson: {fileID: 2182398037412933477}
   crosshair: {fileID: 5201025355127992141}
+  audioSource: {fileID: 4079363183363376033}
 --- !u!114 &1114848210950586412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2072,11 +2073,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: e84914fb5a92b7347af0d9e195a9d618, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

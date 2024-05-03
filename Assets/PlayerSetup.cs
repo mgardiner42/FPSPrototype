@@ -13,6 +13,7 @@ public class PlayerSetup : MonoBehaviour
     public GameObject hud;
     public GameObject weaponThirdPerson;
     public TextMeshProUGUI crosshair;
+    public AudioSource audioSource;
     public void IsLocalPlayer()
     {
         // IF TESTING YOU CAN ENABLE MOVEMENT HERE WITHOUT WAITING FOR TWO PLAYERS
@@ -38,5 +39,6 @@ public class PlayerSetup : MonoBehaviour
         crosshair.text = "+";
         movement.enabled = true;
         GetComponent<Timer>().startTime();
+        audioSource.Play();
     }
 }
