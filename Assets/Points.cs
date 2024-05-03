@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.SceneManagement;
 
 public class Points : MonoBehaviour
 {
@@ -34,15 +35,9 @@ public class Points : MonoBehaviour
         enemyPointText.text = enemyPoints.ToString();
 
         //check for win condition
-        if (myPoints >= scoreToWin)
-        {
-            endGameText.text = "YOU WIN";
+        if (myPoints >= scoreToWin || enemyPoints >= scoreToWin){
             isActive = false;
-        }
-        if (enemyPoints >= scoreToWin) 
-        {
-            endGameText.text = "YOU LOSE";
-            isActive = false;
+            endGame();
         }
     }
 
@@ -82,5 +77,20 @@ public class Points : MonoBehaviour
             enemyPoints = (int)stream.ReceiveNext();
             myPoints = (int)stream.ReceiveNext();
         }
+    }
+
+    private void endGame(){
+        GameObject Winner = new GameObject();
+        Winner.name = "Winner";
+        Winner.AddComponent<TextMeshProUGUI>();
+        if (myPoints == 100){
+            Winner.GetComponent<TextMeshProUGUI>().text = new string (PhotonNetwork.NickName + " Wins!");
+        } else {
+            foreach (var player in PhotonNetwork.PlayerListOthers){
+                Winner.GetComponent<TextMeshProUGUI>().text = new string (player.NickName + " Wins!");
+            }
+        }
+        DontDestroyOnLoad(Winner);
+        SceneManager.LoadScene("EndGame");
     }
 }
