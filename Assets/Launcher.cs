@@ -26,5 +26,9 @@ namespace Com.MyCompany.MyGame
             SceneManager.LoadScene("GreenMap");
         }
 
+        public void Quit()
+        {
+            Application.Quit();
+        }
     }
 }
