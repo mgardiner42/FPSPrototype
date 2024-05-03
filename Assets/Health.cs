@@ -18,7 +18,7 @@ public class Health : MonoBehaviour
 
     public GameObject gun;
 
-    private AudioSource audioSource;
+    public AudioSource audioSource;
     public AudioClip deathSound;
 
       /* https://en.wikipedia.org/wiki/File:Wilhelm_Scream.ogg
@@ -43,12 +43,13 @@ public class Health : MonoBehaviour
         {
             if (isLocalPlayer)
             {
+                audioSource.clip = deathSound;
+                audioSource.Play();
                 RespawnPlayer();
             }
             // add message "You Died!"
             // add particle effects to show damage taken
-            audioSource.clip = deathSound;
-            audioSource.Play();
+           
         }
         // update HUD
         healthText.text = health.ToString();

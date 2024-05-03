@@ -21,9 +21,12 @@ public class HealthParticles : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
 
-        if (particles != null)
-        {
-            PhotonNetwork.Destroy(particles);
+        if (GetComponent<PhotonView>().IsMine)
+        { 
+            if (particles != null)
+            {
+                PhotonNetwork.Destroy(particles);
+            }
         }
     }
 
