@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: -3069641451516765195}
   m_Layer: 0
   m_Name: HealProjectile
-  m_TagString: damage_projectile
+  m_TagString: heal_projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,6 +156,7 @@ MonoBehaviour:
   initialGrowth: 3
   damage: -25
   gracePeriod: 0.5
+  healthParticles: {fileID: 5517142492508767613, guid: eaae79b6c27659941a1b9672cd4f07a7, type: 3}
 --- !u!114 &572932088746286002
 MonoBehaviour:
   m_ObjectHideFlags: 0

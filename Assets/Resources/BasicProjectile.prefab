@@ -156,6 +156,7 @@ MonoBehaviour:
   initialGrowth: 0
   damage: 25
   gracePeriod: 0.5
+  healthParticles: {fileID: 5517142492508767613, guid: eaae79b6c27659941a1b9672cd4f07a7, type: 3}
 --- !u!114 &572932088746286002
 MonoBehaviour:
   m_ObjectHideFlags: 0

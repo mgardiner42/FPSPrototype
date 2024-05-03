@@ -14,6 +14,7 @@ public class BasicProjectile : MonoBehaviour
     public int damage = 25;
     public float gracePeriod = 0.5f;
     float lifespan = 0f;
+    public GameObject healthParticles;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +38,7 @@ public class BasicProjectile : MonoBehaviour
         lifespan += Time.deltaTime;
     }
 
+
     void GrowProjectile(float growth)
     {
         if (scale.localScale.x < maxGrowth)
@@ -50,6 +52,11 @@ public class BasicProjectile : MonoBehaviour
     [PunRPC]
     private void OnCollisionEnter(Collision collision)
     {
+        if(basic_proj.tag == "heal_projectile")
+        {
+            //Health Particle Effect
+            GameObject new_healthParticles = PhotonNetwork.Instantiate(healthParticles.name, basic_proj.transform.position, Quaternion.identity);
+        }
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("Hit Player");
