@@ -45,5 +45,6 @@ public class PlayerFlag : MonoBehaviour
         foreach(Renderer r in gameFlag.GetComponentsInChildren<Renderer>()){
             r.enabled = true;
         }
+        hasFlag = false;
     }
 }

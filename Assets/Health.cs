@@ -83,5 +83,6 @@ public class Health : MonoBehaviour
         if (gameFlag.GetComponent<PhotonView>().IsMine){
             gameFlag.GetComponent<BoxCollider>().enabled = true;
         }
+        GetComponent<PlayerFlag>().hasFlag = false;
     }
 }
