@@ -70,7 +70,7 @@ public class Gun : MonoBehaviour
      */
 
     // Array of weapons
-    string[] weapons = {"Gun", "Molotov", "HealGun", "Blocker" };
+    string[] weapons = {"Gun", "Blocker", "HealGun", "Molotov" };
     int currentWeapon = 0;
 
     // Start is called before the first frame update
@@ -85,17 +85,17 @@ public class Gun : MonoBehaviour
 
         //TODO: as more weapons are added, creating method to auto set up all types
 
-        AmmoCounts p = new AmmoCounts {ammo = Projectiles.BasicProjectile, chargeCount = 1};
-        AmmoCounts b = new AmmoCounts { ammo = Projectiles.BasicBlocker, chargeCount = 3 };
-        AmmoCounts h = new AmmoCounts { ammo = Projectiles.HealProjectile, chargeCount = 4 };
-        AmmoCounts m = new AmmoCounts { ammo = Projectiles.Molotov, chargeCount = 7 }; 
+        AmmoCounts basicAmmo = new AmmoCounts {ammo = Projectiles.BasicProjectile, chargeCount = 1};
+        AmmoCounts blockerAmmo = new AmmoCounts { ammo = Projectiles.BasicBlocker, chargeCount = 3 };
+        AmmoCounts healingAmmo = new AmmoCounts { ammo = Projectiles.HealProjectile, chargeCount = 4 };
+        AmmoCounts MolAmmo = new AmmoCounts { ammo = Projectiles.Molotov, chargeCount = 7 }; 
 
         //Ammo to begin the Round with
         ammoNum = 0;
-        ammoVals.Add(p);
-        ammoVals.Add(b);
-        ammoVals.Add(h);
-        ammoVals.Add(m);
+        ammoVals.Add(basicAmmo);
+        ammoVals.Add(blockerAmmo);
+        ammoVals.Add(healingAmmo);
+        ammoVals.Add(MolAmmo);
         currAmmo = Projectiles.BasicProjectile;
 
         // Setting Up Sound
@@ -142,37 +142,32 @@ public class Gun : MonoBehaviour
         } 
 
        //switching ammo
-       if(Input.GetKeyDown(KeyCode.E))
+       
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            if(ammoNum >= ammoVals.Count-1)
-            {
-                ammoNum = 0;
-            }
-            else
-            {
-                ammoNum += 1;
-            }
-            currAmmo = ammoVals[ammoNum].ammo;
-            currentWeapon += 1;
-            weaponText.text = weapons[Math.Abs((currentWeapon) % 4)].ToString();
+            ammoNum = 0;
+            currentWeapon = 0;  
         }
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            if (ammoNum <= 0)
-            {
-                ammoNum = ammoVals.Count - 1;
-            }
-            else
-            {
-                ammoNum -= 1;
-            }
-            currAmmo = ammoVals[ammoNum].ammo;
-            currentWeapon -= 1;
-            weaponText.text = weapons[Math.Abs((currentWeapon) % 4)].ToString();
+            ammoNum = 1;
+            currentWeapon = 1;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            ammoNum = 2;
+            currentWeapon = 2;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            ammoNum = 3;
+            currentWeapon = 3;
         }
 
+        currAmmo = ammoVals[ammoNum].ammo;
+        weaponText.text = weapons[currentWeapon].ToString();
 
-        
     }
 
     //Method to shoot projectiles -- Switches the guntype depending on the current Ammo selected
