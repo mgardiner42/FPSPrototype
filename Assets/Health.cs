@@ -80,6 +80,8 @@ public class Health : MonoBehaviour
         transform.position = spawnpoint;
         health = MAX_HEALTH;
         gun.GetComponent<Ammo>().charge = gun.GetComponent<Ammo>().MAX_COUNT;
-        gameFlag.GetComponent<BoxCollider>().enabled = true;
+        if (gameFlag.GetComponent<PhotonView>().IsMine){
+            gameFlag.GetComponent<BoxCollider>().enabled = true;
+        }
     }
 }

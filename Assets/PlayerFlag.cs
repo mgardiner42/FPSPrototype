@@ -28,15 +28,17 @@ public class PlayerFlag : MonoBehaviour
     [PunRPC]
     public void dropFlag(){
         hasFlag = false;
-        Debug.Log("am here");
+
         // disables the flag on the players back to show they no longer carry the flag
         foreach(Renderer r in flagRenderers){
             r.enabled = false;
         }
         // detatch the flag from the its current parent (the player holding the flag)
         gameFlag.transform.SetParent(null);
-        gameFlag.GetComponent<BoxCollider>().enabled = false;
-        
+        if (gameFlag.GetComponent<PhotonView>().IsMine){
+            gameFlag.GetComponent<BoxCollider>().enabled = true;
+        }
+
         if (gameFlag.transform.position.y < -5){
             gameFlag.transform.position = GameObject.Find("Room Manager").GetComponent<RoomManager>().flagSpawn.position;
         } else {
