@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Unity.VisualScripting;
 
 public class PlayerFlag : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class PlayerFlag : MonoBehaviour
         foreach(Renderer r in flagRenderers){
             r.enabled = true;
         }
-        
+
     }
 
     [PunRPC]
@@ -40,6 +41,10 @@ public class PlayerFlag : MonoBehaviour
         // enable the renderers to make the flag visible again
         foreach(Renderer r in gameFlag.GetComponentsInChildren<Renderer>()){
             r.enabled = true;
+        }
+        if(gameFlag.GetComponent<PhotonView>().IsMine){
+            PhotonNetwork.Destroy(gameFlag);
+            GameObject.Find("Room Manager").GetComponent<RoomManager>().SpawnFlag();
         }
     }
 }
