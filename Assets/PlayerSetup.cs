@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using TMPro;
+using UnityEngine.UI;
 using Unity.VisualScripting;
 
 public class PlayerSetup : MonoBehaviour
@@ -14,6 +15,8 @@ public class PlayerSetup : MonoBehaviour
     public GameObject weaponThirdPerson;
     public TextMeshProUGUI crosshair;
     public AudioSource audioSource;
+    public GameObject _text;
+    public GameObject player;
     public void IsLocalPlayer()
     {
         // IF TESTING YOU CAN ENABLE MOVEMENT HERE WITHOUT WAITING FOR TWO PLAYERS
@@ -21,6 +24,8 @@ public class PlayerSetup : MonoBehaviour
         camera.SetActive(true);
         hud.SetActive(true);
         weaponThirdPerson.SetActive(false);
+        PhotonNetwork.Instantiate("PlayerName", player.transform.position, Quaternion.identity);
+        _text.GetComponentInChildren<TextMeshProUGUI>().text = PhotonNetwork.NickName;
         StartCoroutine(Countdown());
     }
 

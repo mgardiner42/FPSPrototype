@@ -1703,6 +1703,8 @@ MonoBehaviour:
   weaponThirdPerson: {fileID: 2182398037412933477}
   crosshair: {fileID: 5201025355127992141}
   audioSource: {fileID: 4079363183363376033}
+  _text: {fileID: 0}
+  player: {fileID: 0}
 --- !u!114 &1114848210950586412
 MonoBehaviour:
   m_ObjectHideFlags: 0
