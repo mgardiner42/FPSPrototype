@@ -26,7 +26,7 @@ public class PlayerSetup : MonoBehaviour
 
     // Coroutine that waits for two players then displays a countdown signifying the start of a game
      private IEnumerator Countdown(){
-        yield return new WaitUntil(() => PhotonNetwork.PlayerList.Length == 2);
+        yield return new WaitUntil(() => PhotonNetwork.PlayerList.Length > 1);
 
         int countdown = 3;
 
