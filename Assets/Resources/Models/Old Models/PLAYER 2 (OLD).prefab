@@ -1347,9 +1347,9 @@ GameObject:
   - component: {fileID: 997754818805666692}
   - component: {fileID: 854566861452393326}
   - component: {fileID: 3262284108481303683}
-  - component: {fileID: 2961636337751588104}
+  - component: {fileID: -1491182576599709214}
   m_Layer: 0
-  m_Name: PLAYER 2 pls work
+  m_Name: PLAYER 2 (OLD)
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1435,7 +1435,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7298585867008745316}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c31924472b2f0a24f95ee889b5cb7612, type: 3}
   m_Name: 
@@ -1818,8 +1818,8 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!136 &2961636337751588104
-CapsuleCollider:
+--- !u!65 &-1491182576599709214
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1836,10 +1836,8 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.008873491
-  m_Height: 0.03
-  m_Direction: 1
+  serializedVersion: 3
+  m_Size: {x: 0.016771927, y: 0.03, z: 0.017746981}
   m_Center: {x: 0.000037117396, y: -0.005039661, z: -0.0026899814}
 --- !u!1 &8663744054332512826
 GameObject:
