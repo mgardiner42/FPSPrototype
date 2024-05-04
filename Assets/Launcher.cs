@@ -21,9 +21,13 @@ namespace Com.MyCompany.MyGame
         }
 
 
-        public void Play()
+        public void LaunchGreenMap()
         {
             SceneManager.LoadScene("GreenMap");
+        }
+
+        public void LaunchShoeBox(){
+            SceneManager.LoadScene("ShoeBox");
         }
 
         public void Quit()
