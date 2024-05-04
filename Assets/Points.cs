@@ -5,6 +5,7 @@ using TMPro;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Points : MonoBehaviour
 {
@@ -81,6 +82,12 @@ public class Points : MonoBehaviour
 
     private void endGame(){
         GameObject Winner = new GameObject();
+        GameObject PrevScene = new GameObject();
+
+        PrevScene.name = "PrevScene";
+        PrevScene.AddComponent<Text>();
+        PrevScene.GetComponent<Text>().text = SceneManager.GetActiveScene().name;
+        
         Winner.name = "Winner";
         Winner.AddComponent<TextMeshProUGUI>();
         if (myPoints == 100){
@@ -91,6 +98,7 @@ public class Points : MonoBehaviour
             }
         }
         DontDestroyOnLoad(Winner);
+        DontDestroyOnLoad(PrevScene);
         SceneManager.LoadScene("EndGame");
     }
 }
