@@ -77,12 +77,15 @@ public class Health : MonoBehaviour
         if(GetComponent<PlayerFlag>().hasFlag){
             GetComponent<PlayerFlag>().GetComponent<PhotonView>().RPC("dropFlag", RpcTarget.All);
         }
+        Vector3 deathPos = transform.position;
         transform.position = spawnpoint;
         health = MAX_HEALTH;
         gun.GetComponent<Ammo>().charge = gun.GetComponent<Ammo>().MAX_COUNT;
-        if (gameFlag.GetComponent<PhotonView>().IsMine){
-            gameFlag.GetComponent<BoxCollider>().enabled = true;
+     
+        if (deathPos.y < -5){
+            gameFlag.transform.position = GameObject.Find("Room Manager").GetComponent<RoomManager>().flagSpawn.position;
+        } else {
+            gameFlag.transform.position = transform.position;
         }
-        GetComponent<PlayerFlag>().hasFlag = false;
     }
 }

@@ -23,6 +23,7 @@ public class PlayerFlag : MonoBehaviour
         foreach(Renderer r in flagRenderers){
             r.enabled = true;
         }
+        
     }
 
     [PunRPC]
@@ -36,15 +37,9 @@ public class PlayerFlag : MonoBehaviour
         // detatch the flag from the its current parent (the player holding the flag)
         gameFlag.transform.SetParent(null);
 
-        if (gameFlag.transform.position.y < -5){
-            gameFlag.transform.position = GameObject.Find("Room Manager").GetComponent<RoomManager>().flagSpawn.position;
-        } else {
-            gameFlag.transform.position = transform.position;
-        }
         // enable the renderers to make the flag visible again
         foreach(Renderer r in gameFlag.GetComponentsInChildren<Renderer>()){
             r.enabled = true;
         }
-        hasFlag = false;
     }
 }

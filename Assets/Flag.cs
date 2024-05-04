@@ -28,6 +28,7 @@ public class Flag : MonoBehaviour
                 // disable renderers when the flag is grabbed
                 childRenderer.enabled = false;
             }
+            transform.position = new Vector3(0, 100, 0);
             collision.GetComponent<PlayerFlag>().GetComponent<PhotonView>().RPC("grabFlag", RpcTarget.All);
         }
     }
