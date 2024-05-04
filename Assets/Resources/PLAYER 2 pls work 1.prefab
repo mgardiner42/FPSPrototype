@@ -1373,7 +1373,7 @@ GameObject:
   - component: {fileID: 2734077323700220168}
   - component: {fileID: 2738025352391753874}
   - component: {fileID: 948588209208196399}
-  - component: {fileID: 1227182926541295996}
+  - component: {fileID: 9139650034850162927}
   m_Layer: 0
   m_Name: PLAYER 2 pls work 1
   m_TagString: Untagged
@@ -1461,7 +1461,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7327701245165725275}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c31924472b2f0a24f95ee889b5cb7612, type: 3}
   m_Name: 
@@ -1499,7 +1499,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1054826162703688828
 MonoBehaviour:
@@ -1844,8 +1844,8 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!64 &1227182926541295996
-MeshCollider:
+--- !u!65 &9139650034850162927
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1862,10 +1862,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 7142963548214013697, guid: b01819372c53a09468c4e354676fe395, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.016771927, y: 0.03, z: 0.017746981}
+  m_Center: {x: 0.000037117396, y: -0.005039661, z: -0.0026899814}
 --- !u!1 &7381108289271549906
 GameObject:
   m_ObjectHideFlags: 0
