@@ -8,12 +8,12 @@ public class PlayerFlag : MonoBehaviour
     public bool hasFlag;
     public GameObject personalFlag;
     Renderer[] flagRenderers;
-    Transform gameFlag;
+    GameObject gameFlag;
     
     private void Start(){
         // Variable to store the mesh renders of each child object of the flag
         flagRenderers = personalFlag.GetComponentsInChildren<Renderer>();
-        gameFlag = GameObject.FindWithTag("Game Flag").transform;
+        gameFlag = GameObject.FindWithTag("Game Flag");
     }
 
     [PunRPC]
@@ -34,11 +34,13 @@ public class PlayerFlag : MonoBehaviour
             r.enabled = false;
         }
         // detatch the flag from the its current parent (the player holding the flag)
-        gameFlag.SetParent(null);
-        if (gameFlag.position.y < -5){
-            gameFlag.position = GameObject.Find("Room Manager").GetComponent<RoomManager>().flagSpawn.position;
+        gameFlag.transform.SetParent(null);
+        gameFlag.GetComponent<BoxCollider>().enabled = false;
+        
+        if (gameFlag.transform.position.y < -5){
+            gameFlag.transform.position = GameObject.Find("Room Manager").GetComponent<RoomManager>().flagSpawn.position;
         } else {
-            gameFlag.position = transform.position;
+            gameFlag.transform.position = transform.position;
         }
         // enable the renderers to make the flag visible again
         foreach(Renderer r in gameFlag.GetComponentsInChildren<Renderer>()){
