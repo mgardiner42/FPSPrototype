@@ -36,6 +36,10 @@ public class PlayerFlag : MonoBehaviour
             r.enabled = false;
         }
         // detatch the flag from the its current parent (the player holding the flag)
+        while (gameFlag == null){
+            gameFlag = GameObject.FindWithTag("Game Flag");
+        }
+        
         gameFlag.transform.SetParent(null);
 
         // enable the renderers to make the flag visible again
