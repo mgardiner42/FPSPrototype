@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ShoeBox.unity
     guid: 4a13c9268cdc5e04a9abe469cdfbcd93
+  - enabled: 1
+    path: Assets/Scenes/CityMap.unity
+    guid: def8bd9b168e75b439823bdcfef9c305
   m_configObjects: {}
