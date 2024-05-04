@@ -44,6 +44,9 @@ public class Points : MonoBehaviour
 
     private IEnumerator AddPoints(){
         while (isActive){
+            while (gameFlag == null){
+                gameFlag = GameObject.FindWithTag("Game Flag");
+            }
             // add points and update the HUD
             if(GetComponent<PlayerFlag>().hasFlag){
                 myPoints += 1;
