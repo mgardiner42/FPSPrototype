@@ -74,10 +74,11 @@ public class Health : MonoBehaviour
 
     [PunRPC]
     public void RespawnPlayer() {
+        Vector3 deathPos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+
         if(GetComponent<PlayerFlag>().hasFlag){
             GetComponent<PlayerFlag>().GetComponent<PhotonView>().RPC("dropFlag", RpcTarget.All);
         }
-        Vector3 deathPos = transform.position;
         transform.position = spawnpoint;
         health = MAX_HEALTH;
         gun.GetComponent<Ammo>().charge = gun.GetComponent<Ammo>().MAX_COUNT;
