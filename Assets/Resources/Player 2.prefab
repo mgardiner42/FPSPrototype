@@ -1125,6 +1125,7 @@ MonoBehaviour:
   gun: {fileID: 8477627823517720657}
   audioSource: {fileID: 7329274843809742773}
   deathSound: {fileID: 8300000, guid: 419844cb85bbc064bb721691d592f74c, type: 3}
+  gameFlag: {fileID: 0}
 --- !u!114 &256462967203059993
 MonoBehaviour:
   m_ObjectHideFlags: 0
