@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndGame.unity
     guid: 9ae4ee69dac145c469545bec1c8bae88
+  - enabled: 1
+    path: Assets/Scenes/ShoeBox.unity
+    guid: 4a13c9268cdc5e04a9abe469cdfbcd93
   m_configObjects: {}
