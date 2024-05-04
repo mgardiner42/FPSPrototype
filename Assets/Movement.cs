@@ -13,12 +13,14 @@ public class Movement : MonoBehaviour
     public float jumpForce = 5f;
     public float friction = 2f;
     public float minVelFriction = 0.1f;
+    public float flagSlowFactor = 0.75f;
 
     public LayerMask groundMask;
     private Vector2 input;
     private Rigidbody rb;
     private Health health;
     bool grounded = false;
+    float velocityMult = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +32,14 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GetComponent<PlayerFlag>().hasFlag) 
+        {
+            velocityMult = flagSlowFactor;  
+        } else
+        {
+            velocityMult = 1f;
+        }
+
         input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         input.Normalize();
     }
@@ -43,7 +53,7 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.AddForce(CalculateMovement(walkSpeed), ForceMode.VelocityChange);
+        rb.AddForce(CalculateMovement(walkSpeed * velocityMult), ForceMode.VelocityChange);
 
         //Jumping. Doesnt stop normal movement, cause thats fun
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
