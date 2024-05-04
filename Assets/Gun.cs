@@ -54,8 +54,23 @@ public class Gun : MonoBehaviour
      * https://freesound.org/s/641894/ -- 
      * License: Creative Commons 0 */
 
+
+    public AudioClip flame;
+    /*
+     * Fast Fire Flare Whoosh 1(6lrs).wav by newlocknew -- 
+     * https://freesound.org/s/614724/ -- 
+     * License: Attribution NonCommercial 4.0
+     */
+
+    public AudioClip healing;
+    /*
+     * Healing 5 (Crystalline Respite) by SilverIllusionist -- 
+     * https://freesound.org/s/654071/ -- 
+     * License: Attribution 4.0
+     */
+
     // Array of weapons
-    string[] weapons = {"Gun", "BasicBlocker", "HealGun", "Molotov"};
+    string[] weapons = {"Gun", "Molotov", "HealGun", "Blocker" };
     int currentWeapon = 0;
 
     // Start is called before the first frame update
@@ -155,6 +170,9 @@ public class Gun : MonoBehaviour
             currentWeapon -= 1;
             weaponText.text = weapons[Math.Abs((currentWeapon) % 4)].ToString();
         }
+
+
+        
     }
 
     //Method to shoot projectiles -- Switches the guntype depending on the current Ammo selected
@@ -193,11 +211,15 @@ public class Gun : MonoBehaviour
                 StartCoroutine(DestroyProjectile(5, blocker_new));
                 break;
             case Projectiles.HealProjectile:
+                audioSource.clip = healing;
+                audioSource.Play();
 
                 fireProjectile(healprojectile.name);
                 break;
 
             case Projectiles.Molotov:
+                audioSource.clip = flame;
+                audioSource.Play();
 
                 //Will Change behavior, need to tweak velocity
                 fireProjectile(molotov.name);
