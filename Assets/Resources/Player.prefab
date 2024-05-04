@@ -1908,7 +1908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29f0ca41cac8e884b8c0a800353a4df3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myPoints: 0
+  myPoints: 100
   enemyPoints: 0
   pointText: {fileID: 3802233453948135844}
   enemyPointText: {fileID: 7626633090854744191}
