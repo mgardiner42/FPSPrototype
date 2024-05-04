@@ -85823,7 +85823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e975bbe707a189741a28419b7d0f0141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 6635221053316873731, guid: b6b6eacd87c49e9499fcb819e4c62ba9, type: 3}
+  player: {fileID: 9071468676209784126, guid: bc721ff5c40daf641868e0c9f3e87c1e, type: 3}
   spawnPoint: {fileID: 315743868}
   flagSpawn: {fileID: 332256277}
   flag: {fileID: 4356700832102214286, guid: 6b3f7b0e60dd7f44d9b05ca829320a09, type: 3}
