@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
 
 
 public class EndGame : MonoBehaviour
@@ -13,6 +14,7 @@ public class EndGame : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        PhotonNetwork.Disconnect();
         Time.timeScale = 1;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
