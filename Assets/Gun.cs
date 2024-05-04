@@ -165,6 +165,18 @@ public class Gun : MonoBehaviour
             currentWeapon = 3;
         }
 
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            ammoNum = (ammoNum - 1) % 4;
+            currentWeapon = (currentWeapon - 1) % 4;
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            ammoNum = (ammoNum + 1) % 4;
+            currentWeapon = (currentWeapon + 1) % 4;
+        }
+
         currAmmo = ammoVals[ammoNum].ammo;
         weaponText.text = weapons[currentWeapon].ToString();
 
