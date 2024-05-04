@@ -35,9 +35,6 @@ public class PlayerFlag : MonoBehaviour
         }
         // detatch the flag from the its current parent (the player holding the flag)
         gameFlag.transform.SetParent(null);
-        if (gameFlag.GetComponent<PhotonView>().IsMine){
-            gameFlag.GetComponent<BoxCollider>().enabled = true;
-        }
 
         if (gameFlag.transform.position.y < -5){
             gameFlag.transform.position = GameObject.Find("Room Manager").GetComponent<RoomManager>().flagSpawn.position;

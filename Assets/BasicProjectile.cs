@@ -59,7 +59,6 @@ public class BasicProjectile : MonoBehaviour
         }
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("Hit Player");
             if (GetComponent<PhotonView>().IsMine)
             {
                 //Dont deal damage to the local player
