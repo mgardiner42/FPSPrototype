@@ -20,10 +20,15 @@ public class Health : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip deathSound;
+    public GameObject gameFlag;
 
       /* https://en.wikipedia.org/wiki/File:Wilhelm_Scream.ogg
        * This file is made available under the Creative Commons CC0 
        * 1.0 Universal Public Domain Dedication. */
+
+    private void Start(){
+        gameFlag = GameObject.FindWithTag("Game Flag");
+    }
 
     //Remote procedure call. This allows another player to run these scripts, such as if they deal damage
     [PunRPC]
@@ -67,15 +72,6 @@ public class Health : MonoBehaviour
         healthText.text = health.ToString();
     }
 
-    //Is this old? If so, need to delete now that we have a proper HUD
-    //public void OnGUI()
-    //{
-    //   if (health > 0)
-    //    {
-    //        GUI.Label(new Rect(50, 50, 100, 20), health.ToString() + " HP");
-    //    }
-    //}
-
     [PunRPC]
     public void RespawnPlayer() {
         if(GetComponent<PlayerFlag>().hasFlag){
@@ -84,5 +80,6 @@ public class Health : MonoBehaviour
         transform.position = spawnpoint;
         health = MAX_HEALTH;
         gun.GetComponent<Ammo>().charge = gun.GetComponent<Ammo>().MAX_COUNT;
+        gameFlag.GetComponent<BoxCollider>().enabled = true;
     }
 }

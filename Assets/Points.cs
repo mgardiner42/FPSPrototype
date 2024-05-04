@@ -87,14 +87,16 @@ public class Points : MonoBehaviour
         PrevScene.name = "PrevScene";
         PrevScene.AddComponent<Text>();
         PrevScene.GetComponent<Text>().text = SceneManager.GetActiveScene().name;
-        
+
         Winner.name = "Winner";
         Winner.AddComponent<TextMeshProUGUI>();
         if (myPoints == 100){
             Winner.GetComponent<TextMeshProUGUI>().text = new string (PhotonNetwork.NickName + " Wins!");
         } else {
             foreach (var player in PhotonNetwork.PlayerListOthers){
-                Winner.GetComponent<TextMeshProUGUI>().text = new string (player.NickName + " Wins!");
+                if (player.NickName != PhotonNetwork.NickName){
+                    Winner.GetComponent<TextMeshProUGUI>().text = new string (player.NickName + " Wins!");
+                }
             }
         }
         DontDestroyOnLoad(Winner);
