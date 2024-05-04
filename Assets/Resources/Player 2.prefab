@@ -258,6 +258,8 @@ MonoBehaviour:
   VelocityProj: 140
   basicShotSound: {fileID: 0}
   barrierSound: {fileID: 0}
+  flame: {fileID: 0}
+  healing: {fileID: 0}
 --- !u!114 &1634611594005887835
 MonoBehaviour:
   m_ObjectHideFlags: 0
