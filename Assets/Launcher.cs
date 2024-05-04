@@ -29,6 +29,10 @@ namespace Com.MyCompany.MyGame
         public void LaunchShoeBox(){
             SceneManager.LoadScene("ShoeBox");
         }
+        
+        public void LaunchCity(){
+            SceneManager.LoadScene("CityMap");
+        }
 
         public void Quit()
         {
