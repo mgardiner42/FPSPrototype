@@ -34,6 +34,16 @@ namespace Com.MyCompany.MyGame
             SceneManager.LoadScene("CityMap");
         }
 
+        public void LaunchControls()
+        {
+            SceneManager.LoadScene("ControlScreen");
+        }
+
+        public void LaunchMenu()
+        {
+            SceneManager.LoadScene("Launcher");
+        }
+
         public void Quit()
         {
             Application.Quit();
