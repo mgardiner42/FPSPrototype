@@ -36,10 +36,10 @@ public class Points : MonoBehaviour
         enemyPointText.text = enemyPoints.ToString();
 
         //check for win condition
-        if (myPoints >= scoreToWin || enemyPoints >= scoreToWin){
+        if (myPoints == scoreToWin){
             isActive = false;
-            endGame();
-        }
+            GetComponent<PhotonView>().RPC("endGame", RpcTarget.All, PhotonNetwork.NickName);
+        } 
     }
 
     private IEnumerator AddPoints(){
@@ -83,7 +83,8 @@ public class Points : MonoBehaviour
         }
     }
 
-    private void endGame(){
+    [PunRPC]
+    private void endGame(string winner){
         GameObject Winner = new GameObject();
         GameObject PrevScene = new GameObject();
 
@@ -93,15 +94,16 @@ public class Points : MonoBehaviour
 
         Winner.name = "Winner";
         Winner.AddComponent<TextMeshProUGUI>();
-        if (myPoints == 100){
-            Winner.GetComponent<TextMeshProUGUI>().text = new string (PhotonNetwork.NickName + " Wins!");
-        } else {
-            foreach (var player in PhotonNetwork.PlayerListOthers){
-                if (player.NickName != PhotonNetwork.NickName){
-                    Winner.GetComponent<TextMeshProUGUI>().text = new string (player.NickName + " Wins!");
-                }
-            }
-        }
+        Winner.GetComponent<TextMeshProUGUI>().text = winner;
+        // if (myPoints == 100){
+        //     Winner.GetComponent<TextMeshProUGUI>().text = new string (PhotonNetwork.NickName + " Wins!");
+        // } else {
+        //     foreach (var player in PhotonNetwork.PlayerListOthers){
+        //         if (player.NickName != PhotonNetwork.NickName){
+        //             Winner.GetComponent<TextMeshProUGUI>().text = new string (player.NickName + " Wins!");
+        //         }
+        //     }
+        // }
         DontDestroyOnLoad(Winner);
         DontDestroyOnLoad(PrevScene);
         SceneManager.LoadScene("EndGame");
