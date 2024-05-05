@@ -14,6 +14,18 @@ namespace Com.MyCompany.MyGame
        // This client's version number. Users are separated from each other by gameVersion
         string gameVersion = "1";
 
+        public void Start()
+        {
+            if (PhotonNetwork.IsConnected)
+            {
+                PhotonNetwork.Disconnect();
+            }
+            
+            Time.timeScale = 1;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+
         void Awake()
         {
             // this makes sure we can use PhotonNetwork.LoadLevel() on the master client and all clients in the same room sync their level automatically
