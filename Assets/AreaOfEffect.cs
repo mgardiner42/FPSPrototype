@@ -7,7 +7,7 @@ public class AreaOfEffect : MonoBehaviour
 
     //Generalized script for any Area of Effect Weapon
 {
-    bool inArea = false;
+    bool inArea = false; //Used to keep track of players entering and exiting the area, so as to prevent double damage
     public int damage;
     GameObject player;
     public GameObject projectile;
@@ -27,7 +27,7 @@ public class AreaOfEffect : MonoBehaviour
         while (inArea)
         {
             player.GetComponent<Health>().GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, damage);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1f); //deals damage every second
         }
 
     }

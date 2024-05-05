@@ -12,7 +12,7 @@ public enum Projectiles
     Molotov
 }
 
-public struct AmmoCounts
+public struct AmmoCounts //Struct that the gun uses to manage weapon type and charge count
 {
     public Projectiles ammo;
     public int chargeCount;

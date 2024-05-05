@@ -6,7 +6,7 @@ using Photon.Pun;
 public class HealthParticles : MonoBehaviour
 {
 
-    public GameObject healthParticles;
+    public GameObject healthParticles; //Health Particles on heal projectile
     // Start is called before the first frame update
     void Start()
     {

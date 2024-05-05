@@ -21,6 +21,7 @@ namespace Com.MyCompany.MyGame
                 PhotonNetwork.Disconnect();
             }
             
+            //Resetting the cursor
             Time.timeScale = 1;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
@@ -33,6 +34,7 @@ namespace Com.MyCompany.MyGame
         }
 
 
+        //Calls to launch different scenes or quit game
         public void LaunchGreenMap()
         {
             SceneManager.LoadScene("GreenMap");

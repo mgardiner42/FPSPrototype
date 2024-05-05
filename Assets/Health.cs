@@ -47,8 +47,6 @@ public class Health : MonoBehaviour
                 audioSource.Play();
                 RespawnPlayer();
             }
-            // add message "You Died!"
-            // add particle effects to show damage taken
            
         }
         // update HUD

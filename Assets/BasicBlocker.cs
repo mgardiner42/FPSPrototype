@@ -9,7 +9,6 @@ public class BasicBlocker : MonoBehaviour
     public GameObject basicBlocker;
     public Vector3 direction;
 
-    //TODO Fix Model of Blocker
 
     void Start()
     {
@@ -51,6 +50,7 @@ public class BasicBlocker : MonoBehaviour
         }
     }
 
+    //OLD CODE - behavior of the blocker has changed but leaving this here for future development efforts
     //Growing the Projectile
     void GrowProjectile()
     {
