@@ -35,17 +35,21 @@ public class PlayerFlag : MonoBehaviour
         foreach(Renderer r in flagRenderers){
             r.enabled = false;
         }
-        // detatch the flag from the its current parent (the player holding the flag)
+
+        // Null check for the flag
         while (gameFlag == null){
             gameFlag = GameObject.FindWithTag("Game Flag");
         }
-        
+
+        // detatch the flag from the its current parent (the player holding the flag)
         gameFlag.transform.SetParent(null);
 
         // enable the renderers to make the flag visible again
         foreach(Renderer r in gameFlag.GetComponentsInChildren<Renderer>()){
             r.enabled = true;
         }
+
+        // If client owns the flag then destroy and respawn the flag
         if(gameFlag.GetComponent<PhotonView>().IsMine){
             PhotonNetwork.Destroy(gameFlag);
             GameObject.Find("Room Manager").GetComponent<RoomManager>().SpawnFlag();

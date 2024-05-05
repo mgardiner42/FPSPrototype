@@ -19,6 +19,7 @@ public class Flag : MonoBehaviour
 
     [PunRPC]
     private void OnTriggerEnter(Collider collision){
+        // If the flag has collided with player
         if (collision.transform.tag == "Player" && transform.parent == null){
             audioSource.clip = shing;
             audioSource.Play();
@@ -28,6 +29,7 @@ public class Flag : MonoBehaviour
                 // disable renderers when the flag is grabbed
                 childRenderer.enabled = false;
             }
+            // move the flag off map to prevent the player grabbing the flag multiple times
             transform.position = new Vector3(0, 100, 0);
             collision.GetComponent<PlayerFlag>().GetComponent<PhotonView>().RPC("grabFlag", RpcTarget.All);
         }

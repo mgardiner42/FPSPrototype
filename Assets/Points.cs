@@ -25,7 +25,7 @@ public class Points : MonoBehaviour
     {
         gameFlag = GameObject.FindWithTag("Game Flag");
 
-        // start a coroutine that consistently checks if the player holds the flag
+        // start a coroutine that constantly checks if the player holds the flag
         if (PhotonNetwork.IsMasterClient){
             StartCoroutine(AddPoints());
         }
@@ -47,23 +47,30 @@ public class Points : MonoBehaviour
             StartCoroutine(wait());
         }
     }
+    // wait at the end then load the main menu
     private IEnumerator wait(){
         yield return new WaitForSeconds(5);
-        //PhotonNetwork.Disconnect();
         SceneManager.LoadScene("Launcher");
     }
+
+    // Every second check if the player has the flag or if the flag belongs to another player
     private IEnumerator AddPoints(){
         while (isActive){
+            // Null check for flag in case the flag is dropped
             while (gameFlag == null){
                 gameFlag = GameObject.FindWithTag("Game Flag");
             }
-            // add points and update the HUD
+            
+            // If current client has flag
             if(GetComponent<PlayerFlag>().hasFlag){
                 myPoints += 1;
-            } else if(gameFlag.transform.parent != null){
+            }
+            // if another player has flag 
+            else if(gameFlag.transform.parent != null){
                 enemyPoints += 1;
             }
 
+            // Master client will send their score to ensure other player's score is in sync with theirs
             if(PhotonNetwork.IsMasterClient){
                 GetComponent<PhotonView>().RPC("syncPoints", RpcTarget.All, myPoints, enemyPoints);
             }
@@ -79,43 +86,21 @@ public class Points : MonoBehaviour
         enemyPoints = enemy;
     }
 
-      public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    // Uses photon's i/o stream to read information sent over the network
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
+        // If player is sending 
         if (stream.IsWriting)
         {
             stream.SendNext(myPoints);
             stream.SendNext(enemyPoints);
         }
+        // If player is receiving
         else
         {
+            // Master client sends their score first, then what they have as your score
             enemyPoints = (int)stream.ReceiveNext();
             myPoints = (int)stream.ReceiveNext();
         }
     }
-
-    // [PunRPC]
-    // private void endGame(string winner){
-    //     GameObject Winner = new GameObject();
-    //     GameObject PrevScene = new GameObject();
-
-    //     PrevScene.name = "PrevScene";
-    //     PrevScene.AddComponent<Text>();
-    //     PrevScene.GetComponent<Text>().text = SceneManager.GetActiveScene().name;
-
-    //     Winner.name = "Winner";
-    //     Winner.AddComponent<TextMeshProUGUI>();
-    //     Winner.GetComponent<TextMeshProUGUI>().text = winner;
-    //     // if (myPoints == 100){
-    //     //     Winner.GetComponent<TextMeshProUGUI>().text = new string (PhotonNetwork.NickName + " Wins!");
-    //     // } else {
-    //     //     foreach (var player in PhotonNetwork.PlayerListOthers){
-    //     //         if (player.NickName != PhotonNetwork.NickName){
-    //     //             Winner.GetComponent<TextMeshProUGUI>().text = new string (player.NickName + " Wins!");
-    //     //         }
-    //     //     }
-    //     // }
-    //     DontDestroyOnLoad(Winner);
-    //     DontDestroyOnLoad(PrevScene);
-    //     SceneManager.LoadScene("EndGame");
-    // }
 }
