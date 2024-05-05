@@ -49,6 +49,7 @@ public class Points : MonoBehaviour
     }
     private IEnumerator wait(){
         yield return new WaitForSeconds(5);
+        PhotonNetwork.Disconnect();
         SceneManager.LoadScene("Launcher");
     }
     private IEnumerator AddPoints(){
