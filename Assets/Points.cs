@@ -38,10 +38,19 @@ public class Points : MonoBehaviour
         //check for win condition
         if (myPoints == scoreToWin){
             isActive = false;
-            GetComponent<PhotonView>().RPC("endGame", RpcTarget.All, PhotonNetwork.NickName);
-        } 
+            // GetComponent<PhotonView>().RPC("endGame", RpcTarget.All, PhotonNetwork.NickName);
+            endGameText.text = "YOU WIN!";
+            StartCoroutine(wait());
+        }
+        if (enemyPoints == scoreToWin){
+            endGameText.text = "YOU LOSE!";
+            StartCoroutine(wait());
+        }
     }
-
+    private IEnumerator wait(){
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene("Launcher");
+    }
     private IEnumerator AddPoints(){
         while (isActive){
             while (gameFlag == null){
@@ -83,29 +92,29 @@ public class Points : MonoBehaviour
         }
     }
 
-    [PunRPC]
-    private void endGame(string winner){
-        GameObject Winner = new GameObject();
-        GameObject PrevScene = new GameObject();
+    // [PunRPC]
+    // private void endGame(string winner){
+    //     GameObject Winner = new GameObject();
+    //     GameObject PrevScene = new GameObject();
 
-        PrevScene.name = "PrevScene";
-        PrevScene.AddComponent<Text>();
-        PrevScene.GetComponent<Text>().text = SceneManager.GetActiveScene().name;
+    //     PrevScene.name = "PrevScene";
+    //     PrevScene.AddComponent<Text>();
+    //     PrevScene.GetComponent<Text>().text = SceneManager.GetActiveScene().name;
 
-        Winner.name = "Winner";
-        Winner.AddComponent<TextMeshProUGUI>();
-        Winner.GetComponent<TextMeshProUGUI>().text = winner;
-        // if (myPoints == 100){
-        //     Winner.GetComponent<TextMeshProUGUI>().text = new string (PhotonNetwork.NickName + " Wins!");
-        // } else {
-        //     foreach (var player in PhotonNetwork.PlayerListOthers){
-        //         if (player.NickName != PhotonNetwork.NickName){
-        //             Winner.GetComponent<TextMeshProUGUI>().text = new string (player.NickName + " Wins!");
-        //         }
-        //     }
-        // }
-        DontDestroyOnLoad(Winner);
-        DontDestroyOnLoad(PrevScene);
-        SceneManager.LoadScene("EndGame");
-    }
+    //     Winner.name = "Winner";
+    //     Winner.AddComponent<TextMeshProUGUI>();
+    //     Winner.GetComponent<TextMeshProUGUI>().text = winner;
+    //     // if (myPoints == 100){
+    //     //     Winner.GetComponent<TextMeshProUGUI>().text = new string (PhotonNetwork.NickName + " Wins!");
+    //     // } else {
+    //     //     foreach (var player in PhotonNetwork.PlayerListOthers){
+    //     //         if (player.NickName != PhotonNetwork.NickName){
+    //     //             Winner.GetComponent<TextMeshProUGUI>().text = new string (player.NickName + " Wins!");
+    //     //         }
+    //     //     }
+    //     // }
+    //     DontDestroyOnLoad(Winner);
+    //     DontDestroyOnLoad(PrevScene);
+    //     SceneManager.LoadScene("EndGame");
+    // }
 }
