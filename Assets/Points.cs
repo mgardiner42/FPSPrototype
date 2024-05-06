@@ -43,6 +43,7 @@ public class Points : MonoBehaviour
             StartCoroutine(wait());
         }
         if (enemyPoints == scoreToWin){
+            isActive = false;
             endGameText.text = "YOU LOSE!";
             StartCoroutine(wait());
         }
