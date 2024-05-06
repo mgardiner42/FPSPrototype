@@ -16,7 +16,16 @@ public class PlayerFlag : MonoBehaviour
         flagRenderers = personalFlag.GetComponentsInChildren<Renderer>();
         gameFlag = GameObject.FindWithTag("Game Flag");
     }
+    private void Update(){
+        if(hasFlag && gameFlag != null && gameFlag.transform.parent != transform){
+            hasFlag = false;
 
+            foreach(Renderer r in flagRenderers){
+                r.enabled = false;
+            }
+        }
+    }
+    
     [PunRPC]
     public void grabFlag(){
         hasFlag = true;
